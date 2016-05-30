@@ -81,7 +81,7 @@ var xScale = d3.scale.ordinal()
         .rangeRoundBands([(w*1.03),0], 0.05); 
 var hScale = d3.scale.ordinal()
         .domain(d3.range(end+1,start,-5))
-        .rangeRoundBands([w*0.995,0], 0.05);       
+        .rangeRoundBands([w,5], 0.05);       
 
 
 var yScale = d3.scale.linear()
