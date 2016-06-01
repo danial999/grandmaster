@@ -158,6 +158,16 @@ svg.selectAll("rect")
    .on('mouseover', tip.show)
   .on('mouseout', tip.hide)
    .on("click", drill);
+
+
+//line
+   var circle = svg.append("line")
+                         .attr("x1", 5)
+                         .attr("y1", 5)
+                        .attr("x2", 50)
+                         .attr("y2", 50)
+                         .attr("stroke-width", 2)
+                         .attr("stroke", "black");
   //Tooltip
   // .on("mouseover", function(d) {
   //   //Get this bar's x/y values, then augment for the tooltip
