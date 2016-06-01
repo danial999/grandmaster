@@ -16,7 +16,7 @@
 <script type="text/javascript">
 
 var w = 1400;
-var h = 700;
+var h = 750;
 var margin = 20;
       d3.json("Data/data111.json", function (error,data) {
         if(error){
@@ -125,7 +125,7 @@ var tip = d3.tip()
 d3.select("svg")
   .append("g")
     .attr("class","y axis")
-    .attr("transform","translate("+margin*1.5+",0)")
+    .attr("transform","translate("+margin*1.5+",30)")
   .call(y_axis);
 
   svg.call(tip);
