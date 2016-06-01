@@ -151,10 +151,10 @@ svg.selectAll("rect")
    .attr("height", function(d) {
     return (yScale(0) - yScale(d.value));
    })
-   .attr("fill", function(d) {
-    debugger;
+   .attr("fill", setTimeout(function(d) {
+  
      return "rgb("+ (250-(d.value  *2))+", 30, 40)";
-   })
+   },50)
    .on('mouseover', tip.show)
   .on('mouseout', tip.hide)
    .on("click", drill);
