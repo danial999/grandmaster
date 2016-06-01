@@ -161,8 +161,12 @@ svg.selectAll("rect")
 
 
 //line
-   var circle = svg.append("line")
+  svg.selectAll("line")
+   .data(dataset, key)
+   .enter()
+   .append("line")
       .attr("x", function(d) {
+            debugger;
     return xScale(d.key);
    })
    .attr("y", function(d) {
