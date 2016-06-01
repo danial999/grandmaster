@@ -152,9 +152,9 @@ svg.selectAll("rect")
     return (yScale(0) - yScale(d.value));
    })
    .attr("fill", setTimeout(function(d) {
-  
+  debugger
      return "rgb("+ (250-(d.value  *2))+", 30, 40)";
-   },50))
+   },2000))
    .on('mouseover', tip.show)
   .on('mouseout', tip.hide)
    .on("click", drill);
@@ -174,7 +174,7 @@ svg.selectAll("rect")
     return yScale(d.fatalities/d.aboard);
    })
                          .attr("stroke-width", 2)
-                         .attr("stroke", "black");
+                         .attr("stroke", "white");
   //Tooltip
   // .on("mouseover", function(d) {
   //   //Get this bar's x/y values, then augment for the tooltip
