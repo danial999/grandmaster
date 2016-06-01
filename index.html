@@ -162,10 +162,12 @@ svg.selectAll("rect")
 
 //line
    var circle = svg.append("line")
-                         .attr("x1", 5)
-                         .attr("y1", 5)
-                        .attr("x2", 50)
-                         .attr("y2", 50)
+                         .attr("x", function(d, i) {
+    return xScale(i);
+   })
+   .attr("y", function(d) {
+    return yScale(d.value);
+   })
                          .attr("stroke-width", 2)
                          .attr("stroke", "black");
   //Tooltip
