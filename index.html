@@ -162,12 +162,12 @@ svg.selectAll("rect")
 
 //line
    var circle = svg.append("line")
-   debugger;
-                         .attr("x", function(d) {
-    return d.key;
+      .attr("x", function(d) {
+    return xScale(d.key);
    })
    .attr("y", function(d) {
-    return d.value);
+    debugger;
+    return yScale(d.fatalities/d.aboard);
    })
                          .attr("stroke-width", 2)
                          .attr("stroke", "black");
