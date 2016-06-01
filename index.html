@@ -154,7 +154,7 @@ svg.selectAll("rect")
    .attr("fill", setTimeout(function(d) {
   
      return "rgb("+ (250-(d.value  *2))+", 30, 40)";
-   },50)
+   },50))
    .on('mouseover', tip.show)
   .on('mouseout', tip.hide)
    .on("click", drill);
