@@ -1,9 +1,89 @@
+.blue-button {
+    background: url(Comverse-ref/source/img/btnArrow.png) right 15px center no-repeat, linear-gradient(to bottom, #2e94c8 , #1188c4);
+    height: 36px;
+    width: 180px;
+    padding: 10px;
+    border: none;
+    text-align: left;
+    border-radius: 6px;
+    color: white;
+    box-shadow: 0 1px 3px 0 grey;
+    margin: 20px 0 20px 0;
+}
+
+
+body{
+  font-family:sans-serif;
+}
+
+
+
 svg {
-	background-color: #d6e0f5;
-  padding-top : 30px;
+	background-color: white;
 	margin-left: auto;
 	margin-right: auto;
 	display:block;
+  float: left;
+  
+}
+
+
+#area1 {
+    border-style: double;
+    border-color: black;
+    width: 94%;
+    height: 386px;
+    float: left;
+    margin-left: 33px;
+}
+#area3{
+    border-style: double;
+    border-color: black;
+    width: 94%;
+    height: 386px;
+    float: left;
+    margin-left: 33px;
+
+}
+#area2 {
+    float: right;
+    margin-top: 41px;
+    width: 313px;
+  }
+#area4{
+  float: right;
+}
+.main
+{
+   width: 100%;
+  margin-top:15px;
+}
+.soso
+{
+width: 100%;
+    margin-top: 15px;
+    height: 100px;
+    border-style: groove;
+}
+
+.title1 {
+    margin-left: 0px;
+    margin-bottom: 29px;
+    margin-top: 18px;
+    text-align: center;
+    font-size: 28px;
+}
+.title2
+{
+  margin-left: 200px;
+   margin-bottom: 8px;
+   margin-top: 10px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 17px;
+
+}
+.firstP{
 }
 
 .axis path,
