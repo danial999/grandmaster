@@ -134,7 +134,7 @@ var value = function(d) {
 console.log(dataset);
  
 //Create SVG element
-var svg = d3.select("body")
+var svg = d3.select("#area1")
       .append("svg")
       .attr("width", w)
       .attr("height", h);
@@ -145,15 +145,15 @@ var max = d3.max(dataset, function(d) { return +d.value;} );
 
 var xScale = d3.scale.ordinal()
         .domain(d3.range(dataset.length+1))
-        .rangeRoundBands([(w*1.03),0], 0.05); 
+        .rangeRoundBands([(w),0], 0.1); 
 var hScale = d3.scale.ordinal()
         .domain(d3.range(end+1,start,-5))
-        .rangeRoundBands([w,5], 0.05);       
+        .rangeRoundBands([w,5], 0.1);       
 
 
 var yScale = d3.scale.linear()
                      .domain([0, max+5])
-                     .range([h-margin*1.8, 0]);
+                     .range([h-25-margin*0.9, 0]);
        
 var x_axis = d3.svg.axis().scale(hScale);
 
@@ -165,33 +165,37 @@ var y_axis = d3.svg.axis().scale(yScale).orient("left");
 d3.select("svg")
   .append("g")
     .attr("class","x axis")
-    .attr("transform","translate(0,"+(h-margin*2)+")")
+    .attr("transform","translate(0,"+(h-margin)+")")
   .call(x_axis)
   .selectAll("text")
     .attr("y", 5)
-    .attr("x", 10)
-    .attr("dy", ".35em")
+    .attr("x", 0)
+    .attr("dy", ".5em")
     .attr("transform", "rotate(90)")
     .style("text-anchor", "start");
     
 //creat tip
 var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
+ // .attr('class', 'd3-tip')
+  //.offset([-10, 0])
   .html(function(d) {
-   
-    return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
+
+  
+   func3([d.fatalities,d.aboard,(end-d.key+start+1)]);
+
+   /* return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
     +"<br>" +"<strong>Planes Crashed:</strong> <span style='color:red'>" + d.value  + "</span>"
     +"<br>" + "<strong>Total Aboard:</strong> <span style='color:red'>" + d.aboard  + "</span>"
      +"<br>" + "<strong>Total Fatalities:</strong> <span style='color:red'>" + d.fatalities  + "</span>";
 
+*/
     
 
   })
 
 d3.select("svg")
   .append("g")
-    .attr("class","y axis")
+   .attr("class","y axis")
     .attr("transform","translate("+margin*1.5+",0)")
   .call(y_axis);
 
@@ -207,7 +211,7 @@ svg.selectAll("rect")
    .data(dataset, key)
    .enter()
    .append("rect")
-    .attr("transform","translate("+-25+",0)")
+   .attr("transform","translate("+-25+",0)")
    .attr("x", function(d, i) {
     return xScale(i);
    })
@@ -226,25 +230,27 @@ svg.selectAll("rect")
      setTimeout(function(){
     }, 1000);
   
-     return "rgb("+ (250-(d.value  *2))+", 30, 40)";
+     return "rgb(237, 130, 40)"; 
    })
+   // .duration(1000);
+   
 
 
 //line
-  // svg.selectAll("line")
-  //  .data(dataset, key)
-  //  .enter()
-  //  .append("line")
-  //     .attr("x", function(d) {
-  //           debugger;
-  //   return xScale(d.key);
-  //  })
-  //  .attr("y", function(d) {
-  //   debugger;
-  //   return yScale(d.fatalities/d.aboard);
-  //  })
-  //                        .attr("stroke-width", 2)
-  //                        .attr("stroke", "white");
+  svg.selectAll("line")
+   .data(dataset, key)
+   .enter()
+   .append("line")
+      .attr("x", function(d) {
+            debugger;
+    return xScale(d.key);
+   })
+   .attr("y", function(d) {
+    debugger;
+    return yScale(d.fatalities/d.aboard);
+   })
+                         .attr("stroke-width", 2)
+                         .attr("stroke", "white");
   //Tooltip
   // .on("mouseover", function(d) {
   //   //Get this bar's x/y values, then augment for the tooltip
@@ -422,7 +428,7 @@ svg.selectAll("rect")
    .data(dataset, key)
    .enter()
    .append("rect")
-   .attr("transform","translate("+-25+",0)")
+    .attr("transform","translate("+-25+",0)")
    .attr("x", function(d, i) {
     return xScale(i);
    })
@@ -441,10 +447,8 @@ svg.selectAll("rect")
      setTimeout(function(){
     }, 1000);
   
-     return "rgb(237, 130, 40)"; 
+     return "rgb("+ (250-(d.value  *2))+", 30, 40)";
    })
-   // .duration(1000);
-   
 
 
 //line
@@ -509,6 +513,8 @@ svg.selectAll("rect")
 function func3(data2)
 {
 	
+
+
 	var data1=[data2[0],data2[1]];
 	var r= 150;
 	var color = d3.scale.ordinal()
