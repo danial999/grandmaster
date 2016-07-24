@@ -195,9 +195,9 @@ var tip = d3.tip()
 
 d3.select("svg")
   .append("g")
-   // .attr("class","y axis")
-    //.attr("transform","translate("+margin*1.5+",0)")
-  //.call(y_axis);
+   .attr("class","y axis")
+    .attr("transform","translate("+margin*1.5+",0)")
+  .call(y_axis);
 
   svg.call(tip);
 
@@ -237,20 +237,20 @@ svg.selectAll("rect")
 
 
 //line
-  // svg.selectAll("line")
-  //  .data(dataset, key)
-  //  .enter()
-  //  .append("line")
-  //     .attr("x", function(d) {
-  //           debugger;
-  //   return xScale(d.key);
-  //  })
-  //  .attr("y", function(d) {
-  //   debugger;
-  //   return yScale(d.fatalities/d.aboard);
-  //  })
-  //                        .attr("stroke-width", 2)
-  //                        .attr("stroke", "white");
+  svg.selectAll("line")
+   .data(dataset, key)
+   .enter()
+   .append("line")
+      .attr("x", function(d) {
+            debugger;
+    return xScale(d.key);
+   })
+   .attr("y", function(d) {
+    debugger;
+    return yScale(d.fatalities/d.aboard);
+   })
+                         .attr("stroke-width", 2)
+                         .attr("stroke", "white");
   //Tooltip
   // .on("mouseover", function(d) {
   //   //Get this bar's x/y values, then augment for the tooltip
