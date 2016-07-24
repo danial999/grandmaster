@@ -277,7 +277,7 @@ svg.selectAll("text")
    .text(function(d) {
     return d.value;
    })
-   .attr("text-anchor", "middle")
+   .attr("text-anchor", "left")
    .attr("x", function(d, i) {
     return xScale(i) + xScale.rangeBand() / 2;
    })
