@@ -211,7 +211,7 @@ svg.selectAll("rect")
    .data(dataset, key)
    .enter()
    .append("rect")
-   .attr("transform","translate("+-25+",0)")
+    .attr("transform","translate("+-25+",0)")
    .attr("x", function(d, i) {
     return xScale(i);
    })
@@ -230,9 +230,8 @@ svg.selectAll("rect")
      setTimeout(function(){
     }, 1000);
   
-     return "rgb(237, 130, 40)"; 
+     return "rgb("+ (250-(d.value  *2))+", 30, 40)";
    })
-   // .duration(1000);
    
 
 
@@ -428,7 +427,7 @@ svg.selectAll("rect")
    .data(dataset, key)
    .enter()
    .append("rect")
-    .attr("transform","translate("+-25+",0)")
+   .attr("transform","translate("+-25+",0)")
    .attr("x", function(d, i) {
     return xScale(i);
    })
@@ -447,8 +446,10 @@ svg.selectAll("rect")
      setTimeout(function(){
     }, 1000);
   
-     return "rgb("+ (250-(d.value  *2))+", 30, 40)";
+     return "rgb(237, 130, 40)"; 
    })
+   // .duration(1000);
+   
 
 
 //line
