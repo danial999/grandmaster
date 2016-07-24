@@ -565,8 +565,14 @@ var canvas = d3.select("#area2")
 		.attr("font-size", ".8em")
 		.text(function(d){return d.data;});
 
+ arcs.append("text")
+    .attr("transform", function(d){return "translate(" + arc.centroid(d+50) + ")"})
+    .attr("text-anchor", "middle")
+    .attr("font-size", ".8em")
+    .text(function(d){return data2[2];}); 
 
-		
+	
+	
 
 }
 	
