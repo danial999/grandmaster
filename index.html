@@ -79,11 +79,11 @@ function func(){
 function func1()
 {
 
- w2= document.getElementById("area1").width;
- h2 = document.getElementById("area1").height;
- debugger;
-var w = 817;
-var h = 335;
+var w= document.getElementById("area1").offsetWidth;
+var h = document.getElementById("area1").offsetHeight;
+ 
+// var w = 817;
+// var h = 335;
 var margin = 20;
       d3.json("data111.json", function (error,data) {
         if(error){
