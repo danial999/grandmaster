@@ -29,6 +29,7 @@ svg {
     float: left;
     margin-top: 41px;
     width: 100%;
+    position: absolute;
   }
 
 #area1 {
