@@ -166,17 +166,7 @@ var x_axis = d3.svg.axis().scale(hScale);
 var y_axis = d3.svg.axis().scale(yScale).orient("left");
 
 d3.select("svg")
-  .append("g")
-.attr("class", "y axis")
-.attr("transform", "translate(" + 120 + ",0)")
-    .call(y_axis)
-  .append("text")
-    .attr("transform", "rotate(0)")
-    .attr("transform", "translate(" + 20 + ",0)")
-    .attr("y", 6)
-    .attr("dy", ".71em")
-    .style("text-anchor", "end")
-    .text("Crahses");
+  
 
   //   .attr("class","x axis")
   //   .attr("transform","translate(0,"+(h-margin)+")")
