@@ -167,7 +167,7 @@ var x_axis = d3.svg.axis().scale(hScale);
 var y_axis = d3.svg.axis().scale(yScale).orient("left");
 
 
-d3.select("svg")
+d3.select("#area1").select("svg")
   .append("g")
    .attr("class","y axis")
     .attr("transform","translate("+40+",0)")
@@ -182,7 +182,7 @@ d3.select("svg")
 
     .attr("transform", "rotate(-90)");
 
-d3.select("svg")
+d3.select("#area1").select("svg")
   .append("g")
    .attr("class","x axis")
     .attr("transform", "translate("+20+"," + 300 + ")")
