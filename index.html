@@ -174,12 +174,12 @@ d3.select("svg")
   .call(y_axis);
   d3.select("svg")
   .append("text")
-    .attr("transform", "rotate(-90)")
     .attr("transform", "translate(" + 80 + ",0)")
     .attr("y", 6)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
-    .text("Crahses");
+    .text("Crahses")
+    .attr("transform", "rotate(-90)");
 
 // d3.select("svg")
   //   .attr("class","x axis")
