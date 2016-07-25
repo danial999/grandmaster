@@ -549,7 +549,7 @@ var canvas = d3.select("#area2")
 		.attr("width",300)
 		.attr("height",300);
 
-	var group=canvas.append("m")
+	var group=canvas.append("g")
 		.attr("transform","translate(150,150)");
 
 	var arc = d3.svg.arc()
@@ -562,7 +562,7 @@ var canvas = d3.select("#area2")
 	var arcs =  group.selectAll(".arc")
 		.data(pie(data1))
 		.enter()
-		.append("m")
+		.append("g")
 		.attr("class","arc");
 
 	arcs.append("path")
