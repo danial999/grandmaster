@@ -182,16 +182,17 @@ d3.select("svg")
 
     .attr("transform", "rotate(-90)");
 
-// d3.select("svg")
-  //   .attr("class","x axis")
-  //   .attr("transform","translate(0,"+(h-margin)+")")
-  // .call(x_axis)
-  // .selectAll("text")
-  //   .attr("y", 5)
-  //   .attr("x", 0)
-  //   .attr("dy", ".5em")
-  //   .attr("transform", "rotate(90)")
-  //   .style("text-anchor", "start");
+d3.select("svg")
+    .attr("class","x axis")
+    .attr("transform","translate(0,"+(h-margin)+")")
+  .call(x_axis)
+  .selectAll("text")
+    .attr("y", 5)
+    .attr("x", 0)
+    .attr("dy", ".5em")
+    .attr("transform", "rotate(90)")
+    .style("text-anchor", "start")
+      .text("Year");
 
      
 
