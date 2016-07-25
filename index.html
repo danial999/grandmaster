@@ -258,12 +258,11 @@ svg.selectAll("rect")
    .enter()
    .append("line")
       .attr("x", function(d) {
-            debugger;
+            
     return xScale(d.key);
    })
    .attr("y", function(d) {
-    debugger;
-    return yScale(d.fatalities/d.aboard);
+        return yScale(d.fatalities/d.aboard);
    })
                          .attr("stroke-width", 2)
                          .attr("stroke", "white");
