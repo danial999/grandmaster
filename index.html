@@ -139,7 +139,9 @@ var svg = d3.select("#area1")
       .append("svg")
       .attr("width", w)
       .attr("height", h)
-      .attr("transform","translate("+30+",0)");
+    .append("g")
+    .attr("transform", "translate(" + 30 + "," + 30 + ")");
+
 var max = d3.max(dataset, function(d) { return +d.value;} );
 
 
