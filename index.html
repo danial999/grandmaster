@@ -165,7 +165,7 @@ var y_axis = d3.svg.axis().scale(yScale).orient("left");
 d3.select("svg")
   .append("g")
 .attr("class", "y axis")
-    .call(yAxis)
+    .call(y_axis)
   .append("text")
     .attr("transform", "rotate(-90)")
     .attr("y", 6)
