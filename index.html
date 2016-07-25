@@ -140,7 +140,7 @@ var svg = d3.select("#area1")
       .attr("width", w)
       .attr("height", h)
     .append("g")
-    .attr("transform", "translate(" + 30 + "," + 30 + ")");
+    .attr("transform", "translate(" + 30 + "," + 0 + ")");
 
 var max = d3.max(dataset, function(d) { return +d.value;} );
 
@@ -174,8 +174,8 @@ d3.select("svg")
   .call(y_axis);
   d3.select("svg")
   .append("text")
-    .attr("transform", "rotate(0)")
-    .attr("transform", "translate(" + 20 + ",0)")
+    .attr("transform", "rotate(+90)")
+    .attr("transform", "translate(" + 40 + ",0)")
     .attr("y", 6)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
