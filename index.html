@@ -138,8 +138,8 @@ console.log(dataset);
 var svg = d3.select("#area1")
       .append("svg")
       .attr("width", w)
-      .attr("height", h);
-      .attr("transform","translate("+30+",0)")
+      .attr("height", h)
+      .attr("transform","translate("+30+",0)");
 var max = d3.max(dataset, function(d) { return +d.value;} );
 
 
