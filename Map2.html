@@ -98,21 +98,19 @@ if(IntYear>1950)
             console.log("Latitude"+Latitude+"\n");
             Longitude= results[0].geometry.location.lng();
             console.log("Longitude"+Longitude+"\n");
-            locations.push([address,Latitude,Longitude]);
-            debugger;
             }
             else {
                console.log("Error = "+status);
             // alert("Geocode was not successful for the following reason: " + status);
           }
         });},2000);
-        
-       
+        locations.push([address,Latitude,Longitude]);
+       console.log(locations);
   }
   debugger;
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 4,
-      center: new google.maps.LatLng(locations[i][1], locations[i][2]),
+      center: new google.maps.LatLng(locations[0][1], locations[0][2]),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
