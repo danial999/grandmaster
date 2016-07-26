@@ -85,8 +85,7 @@ if(IntYear>1950)
      
       if(dataset[iter].location[i])
       address = dataset[iter].location[i];
-     wait = true;
-      setTimeout("wait = true", 2000);
+     
 
       geocoder.geocode( { 'address': address}, function(results, status) {
          debugger;
