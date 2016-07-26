@@ -32,7 +32,8 @@ d3.json("data222.json", function (data,error) {
     
 
 var data = data;
-       
+var locations = [[]];
+      
 
  
 
@@ -72,31 +73,30 @@ if(IntYear>1950)
 
 }
 
-debugger;
 
+    key=1960;
     geocoder = new google.maps.Geocoder();
-    var address = "AtlantiCity, New Jersey";
+    var address = null;
+    if(address[key].location)
+    address = dataset[key].location[0];
     var Latitude;
     var Longitude;
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        Latitude = results[0].geometry.location.lat();
-        console.log("Latitude"+Latitude+"\n");
-        Longitude= results[0].geometry.location.lng();
-        console.log("Longitude"+Longitude+"\n");
-        }
-        else {
-        alert("Geocode was not successful for the following reason: " + status);
-      }
-    });
-
-   
-    var locations = [
-      [address, Latitude, Longitude, 4],
-      
-      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-      ['Maroubra Beach', -33.950198, 151.259302, 1]
-    ];
+    for(int i=0;(i<dataset[key].location.length)&& (address!=null);i++){
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            Latitude = results[0].geometry.location.lat();
+            console.log("Latitude"+Latitude+"\n");
+            Longitude= results[0].geometry.location.lng();
+            console.log("Longitude"+Longitude+"\n");
+            }
+            else {
+            alert("Geocode was not successful for the following reason: " + status);
+          }
+        });
+        locations.push([address,Latitude,Longitude]);
+       
+  }
+  debugger;
 });//Here the d3 json read file ends 
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 10,
