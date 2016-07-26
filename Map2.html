@@ -47,7 +47,7 @@ for (var i = start; i <= end; i++) {
         value:0,
         aboard:0,
         fatalities:0,
-        location:0
+        location:[]
     });
 }
 
@@ -59,7 +59,7 @@ var year = data.Date[i].substr(data.Date[i].length - 4);
 var IntYear = parseInt(year);
 if(IntYear>1950)
 {
-    debugger;
+    
     var aboard = data.Aboard[i];
     var IntAboard = parseInt(aboard);
     var fatalities = data.Fatalities[i];
@@ -67,12 +67,12 @@ if(IntYear>1950)
     dataset[end-IntYear].value +=1;
     dataset[end-IntYear].aboard +=IntAboard;
     dataset[end-IntYear].fatalities +=IntFatalities;
-    dataset[end-IntYear].location = data.Location[i];
+    dataset[end-IntYear].location.push(data.Location[i]);
 }
 
 }
 });
-
+debugger
 
     geocoder = new google.maps.Geocoder();
     var address = "AtlantiCity, New Jersey";
