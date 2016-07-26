@@ -35,7 +35,7 @@ d3.json("data222.json", function (data,error) {
     
 
 var data = data;
-var locations = [];
+
       
 
  
@@ -84,6 +84,7 @@ if(IntYear>1950)
     var i=0;
     Latitude=0;
     Longitude=0;
+    locations = [];
     for(i=0; (i<2)&&(i<dataset[iter].location.length);i++){
      
       if(dataset[iter].location[i])
@@ -99,16 +100,8 @@ if(IntYear>1950)
             Longitude= results[0].geometry.location.lng();
             // console.log("Longitude"+Longitude+"\n");
              locations.push([address,Latitude,Longitude]);
-             console.log("here is ok ?"+locations[0][0]);
-            var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: new google.maps.LatLng(locations[0][1], locations[0][2]),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker, i;
+            
+            
             }
             else {
                console.log("Error = "+status);
@@ -118,10 +111,18 @@ if(IntYear>1950)
       
   }
 
-     
+      console.log("here is ok ?"+locations[0][0]);
      debugger;
       
+     var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
 
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
     for (i = 0; i < locations.length; i++) { 
     console.log(locations[i][1]+ locations[i][2]);
       marker = new google.maps.Marker({
