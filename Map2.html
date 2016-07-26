@@ -90,7 +90,7 @@ if(IntYear>1950)
       address = dataset[iter].location[i];
      address = "Monte Renosa, Corsica, France";
 
-      setTimeout(geocoder.geocode( { 'address': address}, function(results, status) {
+      setTimeout(function(){geocoder.geocode( { 'address': address}, function(results, status) {
          
           console.log(status);
           if (status == google.maps.GeocoderStatus.OK) {
@@ -103,7 +103,7 @@ if(IntYear>1950)
                console.log("Error = "+status);
             // alert("Geocode was not successful for the following reason: " + status);
           }
-        });,2000);
+        });},2000);
         locations.push([address,Latitude,Longitude]);
        
   }
