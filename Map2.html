@@ -109,6 +109,8 @@ if(IntYear>1950)
   }
   
      console.log(locations);
+     var m = locations[1][1];
+     debugger;
       var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 4,
       center: new google.maps.LatLng(locations[1][1], locations[1][2]),
