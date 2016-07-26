@@ -95,10 +95,12 @@ if(IntYear>1950)
           console.log(status);
           if (status == google.maps.GeocoderStatus.OK) {
             Latitude = results[0].geometry.location.lat();
-            console.log("Latitude"+Latitude+"\n");
+            // console.log("Latitude"+Latitude+"\n");
             Longitude= results[0].geometry.location.lng();
-            console.log("Longitude"+Longitude+"\n");
+            // console.log("Longitude"+Longitude+"\n");
              locations.push([address,Latitude,Longitude]);
+             console.log("here is ok ?"+locations[0][0]);
+ 
             }
             else {
                console.log("Error = "+status);
@@ -107,11 +109,8 @@ if(IntYear>1950)
         });       
       
   }
-    while(locations.length<1){
-      
-    }
-     console.log(locations[0][0]);
- 
+
+     
      debugger;
       var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 4,
