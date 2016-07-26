@@ -98,13 +98,15 @@ if(IntYear>1950)
             console.log("Latitude"+Latitude+"\n");
             Longitude= results[0].geometry.location.lng();
             console.log("Longitude"+Longitude+"\n");
+            locations.push([address,Latitude,Longitude]);
+            debugger;
             }
             else {
                console.log("Error = "+status);
             // alert("Geocode was not successful for the following reason: " + status);
           }
         });},2000);
-        locations.push([address,Latitude,Longitude]);
+        
        
   }
   debugger;
