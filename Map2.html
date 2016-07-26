@@ -77,10 +77,10 @@ if(IntYear>1950)
     var key=1960;
     geocoder = new google.maps.Geocoder();
     var address = null;
-    
+    var i=0;
     var Latitude;
     var Longitude;
-    for(int i=0; i<dataset[key].location.length;i++){
+    for(i=0; i<dataset[key].location.length;i++){
       if(address[key].location)
       address = dataset[key].location[0];
       geocoder.geocode( { 'address': address}, function(results, status) {
