@@ -87,7 +87,9 @@ if(IntYear>1950)
       address = dataset[iter].location[i];
      wait = true;
       setTimeout("wait = true", 2000);
+
       geocoder.geocode( { 'address': address}, function(results, status) {
+          console.log(status);
           if (status == google.maps.GeocoderStatus.OK) {
             Latitude = results[0].geometry.location.lat();
             console.log("Latitude"+Latitude+"\n");
@@ -95,7 +97,8 @@ if(IntYear>1950)
             console.log("Longitude"+Longitude+"\n");
             }
             else {
-            alert("Geocode was not successful for the following reason: " + status);
+               console.log("Error = "+status);
+            // alert("Geocode was not successful for the following reason: " + status);
           }
         });
         locations.push([address,Latitude,Longitude]);
