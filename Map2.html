@@ -85,6 +85,8 @@ if(IntYear>1950)
       debugger;
       if(dataset[iter].location[i])
       address = dataset[iter].location[i];
+     wait = true;
+      setTimeout("wait = true", 2000);
       geocoder.geocode( { 'address': address}, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
             Latitude = results[0].geometry.location.lat();
