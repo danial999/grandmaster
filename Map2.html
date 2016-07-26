@@ -100,7 +100,15 @@ if(IntYear>1950)
             // console.log("Longitude"+Longitude+"\n");
              locations.push([address,Latitude,Longitude]);
              console.log("here is ok ?"+locations[0][0]);
- 
+            var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
             }
             else {
                console.log("Error = "+status);
@@ -112,15 +120,7 @@ if(IntYear>1950)
 
      
      debugger;
-      var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: new google.maps.LatLng(locations[0][1], locations[0][2]),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker, i;
+      
 
     for (i = 0; i < locations.length; i++) {  
       marker = new google.maps.Marker({
