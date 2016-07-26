@@ -84,7 +84,7 @@ if(IntYear>1950)
     var i=0;
     var Latitude;
     var Longitude;
-    for(i=0; i<1,i<dataset[iter].location.length;i++){
+    for(i=0; (i<1)&&(i<dataset[iter].location.length);i++){
      debugger;
       if(dataset[iter].location[i])
       address = dataset[iter].location[i];
