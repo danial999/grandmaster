@@ -85,13 +85,13 @@ if(IntYear>1950)
     var Latitude;
     var Longitude;
     for(i=0; i<1,i<dataset[iter].location.length;i++){
-     
+     debugger;
       if(dataset[iter].location[i])
       address = dataset[iter].location[i];
-     
+     address = "Monte Renosa, Corsica, France";
 
       geocoder.geocode( { 'address': address}, function(results, status) {
-         debugger;
+         
           console.log(status);
           if (status == google.maps.GeocoderStatus.OK) {
             Latitude = results[0].geometry.location.lat();
