@@ -28,6 +28,7 @@
     <body>
       <div id="map" style="width: 500px; height: 400px;"></div>
       <script type="text/javascript">
+  locations = [];
 d3.json("data222.json", function (data,error) {
         if(error){
           console.log("Error loading data")
@@ -84,7 +85,7 @@ if(IntYear>1950)
     var i=0;
     Latitude=0;
     Longitude=0;
-    locations = [];
+  
     for(i=0; (i<2)&&(i<dataset[iter].location.length);i++){
      
       if(dataset[iter].location[i])
@@ -110,6 +111,8 @@ if(IntYear>1950)
         });       
       
   }
+
+   });//Here the d3 json read file ends 
     debugger;
     console.log("here is ok 22?"+locations[0][0]);
 
@@ -139,7 +142,7 @@ if(IntYear>1950)
         }
       })(marker, i));
     }
-    });//Here the d3 json read file ends 
+   
 
   </script>
     </body>
