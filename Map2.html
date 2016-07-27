@@ -28,7 +28,7 @@
     <body>
       <div id="map" style="width: 500px; height: 400px;"></div>
       <script type="text/javascript">
-var  locations = [];
+
 
    debugger;
 
@@ -91,6 +91,8 @@ if(IntYear>1950)
     var map ;
     var infowindow 
     var marker;
+    locations = [];
+    debugger;
     for(i=0; (i<2)&&(i<dataset[iter].location.length);i++){
       if(i==0){
           map = new google.maps.Map(document.getElementById('map'), {
