@@ -118,39 +118,44 @@ if(IntYear>1950)
    });//Here the d3 json read file ends 
   
 
+  
 
+    // debugger;
+    // console.log("here is ok 22?"+locations[0][0]);
 
-    debugger;
-    console.log("here is ok 22?"+locations[0][0]);
-debugger;
      
      
       
-     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: new google.maps.LatLng(locations[0][1], locations[0][2]),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+    //  var map = new google.maps.Map(document.getElementById('map'), {
+    //   zoom: 4,
+    //   center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+    //   mapTypeId: google.maps.MapTypeId.ROADMAP
+    // });
 
-    var infowindow = new google.maps.InfoWindow();
+    // var infowindow = new google.maps.InfoWindow();
 
-    var marker, i;
-    for (i = 0; i < locations.length; i++) { 
-    console.log(locations[i][1]+ locations[i][2]);
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
+    // var marker, i;
+    // for (i = 0; i < locations.length; i++) { 
+    // console.log(locations[i][1]+ locations[i][2]);
+    //   marker = new google.maps.Marker({
+    //     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+    //     map: map
+    //   });
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
+    //   google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    //     return function() {
+    //       infowindow.setContent(locations[i][0]);
+    //       infowindow.open(map, marker);
+    //     }
+    //   })(marker, i));
+    // }
 
 
+
+  </script>
+  <script type="">
+debugger;
+             console.log("here is ok ?"+locations[0][0]);
 
   </script>
     </body>
