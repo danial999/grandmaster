@@ -29,8 +29,12 @@
       <div id="map" style="width: 500px; height: 400px;"></div>
       <script type="text/javascript">
 var  locations = [];
-
+var isPaused = false;
    
+function firstFunction(){
+    isPaused = true;
+    
+ 
 
 d3.json("data222.json", function (data,error) {
         if(error){
@@ -94,69 +98,76 @@ if(IntYear>1950)
       if(dataset[iter].location[i])
       address = dataset[iter].location[i];
      address = "Monte Renosa, Corsica, France";
-       locations.push([address,Latitude,Longitude]);
-      // geocoder.geocode( { 'address': address}, function(results, status) {
+     
+      geocoder.geocode( { 'address': address}, function(results, status) {
          
-      //     console.log(status);
-      //     if (status == google.maps.GeocoderStatus.OK) {
-      //       Latitude = results[0].geometry.location.lat();
-      //       // console.log("Latitude"+Latitude+"\n");
-      //       Longitude= results[0].geometry.location.lng();
-      //       // console.log("Longitude"+Longitude+"\n");
-      //        locations.push([address,Latitude,Longitude]);
-      //        console.log("here is ok ?"+locations[0][0]);
+          console.log(status);
+          if (status == google.maps.GeocoderStatus.OK) {
+            Latitude = results[0].geometry.location.lat();
+            // console.log("Latitude"+Latitude+"\n");
+            Longitude= results[0].geometry.location.lng();
+            // console.log("Longitude"+Longitude+"\n");
+             locations.push([address,Latitude,Longitude]);
+             console.log("here is ok ?"+locations[0][0]);
             
-      //       }
-      //       else {
-      //          console.log("Error = "+status);
-      //       // alert("Geocode was not successful for the following reason: " + status);
-      //     }
-      //   });       
+            }
+            else {
+               console.log("Error = "+status);
+            // alert("Geocode was not successful for the following reason: " + status);
+          }
+        });       
       
   }
  
    });//Here the d3 json read file ends 
   
-
+   isPaused = false;
+};
   
-
-    // debugger;
-    // console.log("here is ok 22?"+locations[0][0]);
+function secondFunction(){
+    firstFunction()
+    function waitForIt(){
+        if (isPaused) {
+            setTimeout(function(){waitForIt()},100);
+        } else {
+            // go do that thing
+       
+    debugger;
+    console.log("here is ok 22?"+locations[0][0]);
 
      
      
       
-    //  var map = new google.maps.Map(document.getElementById('map'), {
-    //   zoom: 4,
-    //   center: new google.maps.LatLng(locations[0][1], locations[0][2]),
-    //   mapTypeId: google.maps.MapTypeId.ROADMAP
-    // });
+     var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
 
-    // var infowindow = new google.maps.InfoWindow();
+    var infowindow = new google.maps.InfoWindow();
 
-    // var marker, i;
-    // for (i = 0; i < locations.length; i++) { 
-    // console.log(locations[i][1]+ locations[i][2]);
-    //   marker = new google.maps.Marker({
-    //     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-    //     map: map
-    //   });
+    var marker, i;
+    for (i = 0; i < locations.length; i++) { 
+    console.log(locations[i][1]+ locations[i][2]);
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
 
-    //   google.maps.event.addListener(marker, 'click', (function(marker, i) {
-    //     return function() {
-    //       infowindow.setContent(locations[i][0]);
-    //       infowindow.open(map, marker);
-    //     }
-    //   })(marker, i));
-    // }
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+ 
+  }; //Close new try to wait for first func 
+ }
+};
 
-
-
-  </script>
-  <script type="">
-debugger;
-             console.log("here is ok ?"+locations[0][0]);
 
   </script>
+ 
     </body>
 </html>
