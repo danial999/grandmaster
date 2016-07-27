@@ -25,12 +25,13 @@
     </style>
 </head>
 
-    <body onload="Init()">
+    <body>
       <div id="map" style="width: 500px; height: 400px;"></div>
       <script type="text/javascript">
   locations = [];
-function Init(){
-   console.log("Started Init");
+
+   
+
 d3.json("data222.json", function (data,error) {
         if(error){
           console.log("Error loading data")
@@ -54,7 +55,7 @@ for (var i = start; i <= end; i++) {
         value:0,
         aboard:0,
         fatalities:0,
-        location:[]
+       
     });
 }
 
@@ -113,12 +114,12 @@ if(IntYear>1950)
         });       
       
   }
-  SecondFunc ();
+ 
    });//Here the d3 json read file ends 
   
-}
 
-function SecondFunc (){
+
+
     debugger;
     console.log("here is ok 22?"+locations[0][0]);
 
@@ -149,8 +150,7 @@ function SecondFunc (){
       })(marker, i));
     }
 
-}//End Second Func
-   
+
 
   </script>
     </body>
