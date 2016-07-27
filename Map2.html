@@ -29,13 +29,8 @@
       <div id="map" style="width: 500px; height: 400px;"></div>
       <script type="text/javascript">
 var  locations = [];
-var isPaused = false;
-   secondFunction();
-function firstFunction(){
-  console.log("Startede Func 1");
-    isPaused = true;
-    
- 
+
+   debugger;
 
 d3.json("data222.json", function (data,error) {
         if(error){
@@ -99,15 +94,15 @@ if(IntYear>1950)
       if(dataset[iter].location[i])
       address = dataset[iter].location[i];
      address = "Monte Renosa, Corsica, France";
-     
+
       geocoder.geocode( { 'address': address}, function(results, status) {
          
           console.log(status);
           if (status == google.maps.GeocoderStatus.OK) {
             Latitude = results[0].geometry.location.lat();
-          console.log("Latitude"+Latitude+"\n");
+            // console.log("Latitude"+Latitude+"\n");
             Longitude= results[0].geometry.location.lng();
-             console.log("Longitude"+Longitude+"\n");
+            // console.log("Longitude"+Longitude+"\n");
              locations.push([address,Latitude,Longitude]);
              console.log("here is ok ?"+locations[0][0]);
             
@@ -121,23 +116,13 @@ if(IntYear>1950)
   }
  
    });//Here the d3 json read file ends 
-     console.log("Finished Func 1");
-
-   isPaused = false;
-};
   
-function secondFunction(){
-   console.log("Startede Func 2");
-    firstFunction()
-    function waitForIt(){
-        if (isPaused) {
-            setTimeout(function(){waitForIt()},100);
-        } else {
-            // go do that thing
-       
-    debugger;
-    console.log("here is ok 22?"+locations[0][0]);
 
+
+
+    
+    console.log("here is ok 22?"+locations[0][0]);
+debugger;
      
      
       
@@ -164,13 +149,9 @@ function secondFunction(){
         }
       })(marker, i));
     }
-   console.log("Finished Func 2");
-  }; //Close new try to wait for first func 
- }
-};
+
 
 
   </script>
- 
     </body>
 </html>
