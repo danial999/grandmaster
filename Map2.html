@@ -88,8 +88,18 @@ if(IntYear>1950)
     var i=0;
     Latitude=0;
     Longitude=0;
-  
+    var map ;
+    var infowindow 
+    var marker;
     for(i=0; (i<2)&&(i<dataset[iter].location.length);i++){
+      if(i==0){
+          map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+           infowindow = new google.maps.InfoWindow();
+      }  
      
       if(dataset[iter].location[i])
       address = dataset[iter].location[i];
@@ -104,7 +114,19 @@ if(IntYear>1950)
             Longitude= results[0].geometry.location.lng();
             // console.log("Longitude"+Longitude+"\n");
              locations.push([address,Latitude,Longitude]);
-             console.log("here is ok ?"+locations[0][0]);
+            //second part 
+           console.log(locations[i][1]+ locations[i][2]);
+           marker = new google.maps.Marker({
+           position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+           map: map
+           });
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+           }
+           })(marker, i));
+
             
             }
             else {
@@ -114,47 +136,19 @@ if(IntYear>1950)
         });       
       
   }
-    if(i==2){
-      console.log("finished 2 new")
-      console.log("here is ok 33?"+locations);
-      secondFunc(locations);
-      }
+
    });//Here the d3 json read file ends 
   
 
 
- function secondFunc(locations){
-    
-    console.log("here is ok 22?"+locations);
 
+    
+  
      
      
       
-     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: new google.maps.LatLng(locations[0][1], locations[0][2]),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+   
 
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker, i;
-    for (i = 0; i < locations.length; i++) { 
-    console.log(locations[i][1]+ locations[i][2]);
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
- 
- }//end second func
 
 
   </script>
