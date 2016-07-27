@@ -32,7 +32,7 @@ var  locations = [];
 var isPaused = false;
    secondFunction();
 function firstFunction(){
-  console.log("Startede Func one");
+  console.log("Startede Func 1");
     isPaused = true;
     
  
@@ -121,7 +121,8 @@ if(IntYear>1950)
   }
  
    });//Here the d3 json read file ends 
-  
+     console.log("Finished Func 1");
+
    isPaused = false;
 };
   
@@ -163,7 +164,7 @@ function secondFunction(){
         }
       })(marker, i));
     }
- 
+   console.log("Finished Func 2");
   }; //Close new try to wait for first func 
  }
 };
