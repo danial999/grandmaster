@@ -114,16 +114,18 @@ if(IntYear>1950)
         });       
       
   }
-  if(i==2)
-    console.log("finished 2 new")
-  secondFunc(locations);
+    if(i==2){
+      console.log("finished 2 new")
+      console.log("here is ok 33?"+locations);
+      secondFunc(locations);
+      }
    });//Here the d3 json read file ends 
   
 
 
  function secondFunc(locations){
     
-    console.log("here is ok 22?"+locations[0][0]);
+    console.log("here is ok 22?"+locations);
 
      
      
