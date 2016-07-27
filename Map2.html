@@ -32,6 +32,7 @@ var  locations = [];
 var isPaused = false;
    
 function firstFunction(){
+  console.log("Startede Func one");
     isPaused = true;
     
  
@@ -104,9 +105,9 @@ if(IntYear>1950)
           console.log(status);
           if (status == google.maps.GeocoderStatus.OK) {
             Latitude = results[0].geometry.location.lat();
-            // console.log("Latitude"+Latitude+"\n");
+          console.log("Latitude"+Latitude+"\n");
             Longitude= results[0].geometry.location.lng();
-            // console.log("Longitude"+Longitude+"\n");
+             console.log("Longitude"+Longitude+"\n");
              locations.push([address,Latitude,Longitude]);
              console.log("here is ok ?"+locations[0][0]);
             
