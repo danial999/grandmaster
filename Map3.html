@@ -47,9 +47,102 @@ function initialize() {
     map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
     map.setTilt(45);
         
+//Get location Lat and Long
+    d3.json("data222.json", function (data,error) {
+        if(error){
+          console.log("Error loading data")
+        }
+    
+
+var data = data;
+
+      
+
+ 
+
+ //make Key from 1908 to 2009 -- for now it's till 1949
+var dataset = [];
+var start = 1950;
+var end = 2009
+var len = end-start;
+for (var i = start; i <= end; i++) {
+    dataset.push({
+        key: i,
+        value:0,
+        aboard:0,
+        fatalities:0,
+        location:[]
+    });
+}
+
+var soso=data.Date.length;
+
+for (var i = 0; i < data.Date.length; i++) {
+ 
+var year = data.Date[i].substr(data.Date[i].length - 4);
+var IntYear = parseInt(year);
+if(IntYear>1950)
+{
+    
+    var aboard = data.Aboard[i];
+    var IntAboard = parseInt(aboard);
+    var fatalities = data.Fatalities[i];
+    var IntFatalities = parseInt(fatalities);
+    dataset[end-IntYear].value +=1;
+    dataset[end-IntYear].aboard +=IntAboard;
+    dataset[end-IntYear].fatalities +=IntFatalities;
+    dataset[end-IntYear].location.push(data.Location[i]);
+}
+
+}
+
+
+    var key=1962;
+    var iter = end -key;
+    geocoder = new google.maps.Geocoder();
+    var address = null;
+    var i=0;
+    Latitude=0;
+    Longitude=0;
+    var map ;
+    var infowindow 
+    var marker;
+    locations = [];
+    debugger;
+    for(i=0; (i<2)&&(i<dataset[iter].location.length);i++){
+      
+      if(dataset[iter].location[i])
+      address = dataset[iter].location[i];
+     address = "Monte Renosa, Corsica, France";
+
+      geocoder.geocode( { 'address': address}, function(results, status) {
+         
+          console.log(status);
+          if (status == google.maps.GeocoderStatus.OK) {
+            Latitude = results[0].geometry.location.lat();
+            // console.log("Latitude"+Latitude+"\n");
+            Longitude= results[0].geometry.location.lng();
+            // console.log("Longitude"+Longitude+"\n");
+             locations.push([address,Latitude,Longitude]);
+            //second part 
+            if(i==0){
+          map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+           infowindow = new google.maps.InfoWindow();
+      }    
+  });//Here the d3 json read file ends 
+    console.log(locations);
+
+    //End part itegrated  
+
     // Multiple Markers
     var markers = [
-           ];
+        ['London Eye, London', 51.503454,-0.119562],
+        ['Palace of Westminster, London', 51.499633,-0.124755]
+    ];
                         
     // Info Window Content
     var infoWindowContent = [
