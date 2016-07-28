@@ -105,8 +105,9 @@ if(IntYear>1950)
     for(i=0; (i<dataset[iter].location.length);i++){
       
       if(dataset[iter].location[i]){
-        console.log("data found")
+     
       address = dataset[iter].location[i];
+         console.log("address");
       }
       else{
      address = "Monte Renosa, Corsica, France";
