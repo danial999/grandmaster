@@ -1,6 +1,6 @@
 
 
- 
+
 
  var markerCount = 0;
  var map; 
@@ -26,8 +26,6 @@ function initialize(key2) {
   }
   else{
     key=key2;
-
-});
   }
 
  //Initializes the map… 
