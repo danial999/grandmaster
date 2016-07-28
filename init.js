@@ -122,7 +122,7 @@ if(IntYear>1950)
        
                   // console.log("Latitude"+Latitude+"\n");
                   // console.log("Longitude"+Longitude+"\n");
-                  addMarkerToMap(Latitude,Longitude,address);
+            addMarkerToMap(Latitude,Longitude,address);
            }
             else {
                console.log("Error = "+status);
