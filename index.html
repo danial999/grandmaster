@@ -5,8 +5,8 @@
 	<title>Airplanes Crashes Statistics</title>
   
   <script src="jquery-3.1.0.js"></script> 
-  <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
-  
+   <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/d3.layout.js"></script>
   
   <link rel="stylesheet" type="text/css" href="mystyle.css">
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
@@ -101,7 +101,7 @@ var h = document.getElementById("area1").offsetHeight;
 // var h = 335;
 var margin = 20;
 debugger;
-      d3.json("data111.json", function (error,data) {
+      d3.json("data333.json", function (error,data) {
         if(error){
           console.log("Error loading data"+ error)
         }
