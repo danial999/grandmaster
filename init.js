@@ -3,13 +3,13 @@
   
 
 
- var markerCount = 0;
+var markerCount;
  var map; 
  key=2000;
 
  Init =1;
 function start_mapping(){
- 
+  markerCount = 0;
     jQuery(function($) {
     // Asynchronously Load the map API 
     var script = document.createElement('script');
