@@ -10,7 +10,11 @@
   
   <link rel="stylesheet" type="text/css" href="mystyle.css">
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-   
+    <script> 
+    $(function(){
+      $("#includedContent").load("Map2.html"); 
+    });
+    </script> 
 	
   
 </head>
@@ -96,6 +100,7 @@ var h = document.getElementById("area1").offsetHeight;
 // var w = 817;
 // var h = 335;
 var margin = 20;
+debugger;
       d3.json("data111.json", function (error,data) {
         if(error){
           console.log("Error loading data")
