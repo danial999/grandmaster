@@ -20,14 +20,15 @@ function start_mapping(){
 
 }  
 
-function initialize(key2) {
-  debugger;
+function initialize() {
+  
   if(Init==1){
     Init=0;
   key=2000;
   }
   else{
-    key=key2;
+    debugger;
+    key=document.getElementById("text1").value ;
   }
 
  //Initializes the map… 
@@ -113,14 +114,14 @@ if(IntYear>1950)
 
       geocoder.geocode( { 'address': address}, function(results, status) {
          
-           console.log(status);
+           // console.log(status);
           if (status == google.maps.GeocoderStatus.OK) {
             Latitude = results[0].geometry.location.lat();
             // console.log("Latitude"+Latitude+"\n");
             Longitude= results[0].geometry.location.lng();             
        
-                  console.log("Latitude"+Latitude+"\n");
-                  console.log("Longitude"+Longitude+"\n");
+                  // console.log("Latitude"+Latitude+"\n");
+                  // console.log("Longitude"+Longitude+"\n");
                   addMarkerToMap(Latitude,Longitude,address);
            }
             else {
