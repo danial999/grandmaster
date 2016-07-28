@@ -82,11 +82,19 @@
 
 window.onLoad = func();
 function func(){
-	func1();
+  setTimeout(function(){
+   	func1();
+  }, 2000);
+  setTimeout(function(){
 	func2();
+  }, 2000);
 	//func3()
+   setTimeout(function(){
 	func3([581,891,2010]);
+   }, 2000);
+setTimeout(function(){
 	func4();
+   }, 2000);
 
 }
 function func1()
