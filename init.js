@@ -1,11 +1,5 @@
 
-  
-var imported = document.createElement('script');
-imported.src = 'd3/d3.js';
-document.head.appendChild(imported);
-var imported2 = document.createElement('script');
-imported2.src = 'd3/d3.layout.js';
-document.head.appendChild(imported2);
+
  var markerCount = 0;
  var map; 
  key=2000;
