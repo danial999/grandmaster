@@ -27,7 +27,7 @@ function initialize() {
   key=2000;
   }
   else{
-    debugger;
+
     key=document.getElementById("text1").value ;
   }
 
@@ -40,7 +40,7 @@ function initialize() {
  }
 
 function start_update(key2){
-
+    debugger;
       d3.json("data111.json", function (data2,error) {
         if(error){
           console.log("Error loading data")
