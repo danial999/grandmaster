@@ -1,7 +1,10 @@
 
 
   
-
+  <script src="jquery-3.1.0.js"></script> 
+  <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/d3.layout.js"></script>
+    
 
  var markerCount = 0;
  var map; 
@@ -27,12 +30,7 @@ function initialize(key2) {
   }
   else{
     key=key2;
-     jQuery(function($) {
-    // Asynchronously Load the map API 
-    var script = document.createElement('script');
-    // script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM";
-        script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM&callback=initialize";
-    document.body.appendChild(script);
+
 });
   }
 

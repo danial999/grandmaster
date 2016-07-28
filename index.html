@@ -259,8 +259,8 @@ svg.selectAll("rect")
    .attr("height", function(d) {
     return (yScale(0) - yScale(d.value));
    })
-  //  .on('mouseover', tip.show)
-  // .on('mouseout', tip.hide)
+    .on('mouseover', tip.show)
+   .on('mouseout', tip.hide)
    .on("click", drill)
    // .transition()
    .attr("fill", function(d) {
