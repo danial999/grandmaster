@@ -143,15 +143,18 @@ if(IntYear>1950)
                 center: new google.maps.LatLng(Latitude, Longitude),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
                 });
-                infowindow = new google.maps.InfoWindow();
+                // infowindow = new google.maps.InfoWindow();
             }  
             
                 marker = new google.maps.Marker({
                position: new google.maps.LatLng(Longitude, Longitude),
-                map: map
+                map: map,
+                title: address
           }); 
                   console.log("Latitude"+Latitude+"\n");
                   console.log("Longitude"+Longitude+"\n");
+            // Display multiple markers on a map
+               infoWindow = new google.maps.InfoWindow(), marker, i;
                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
                 infowindow.setContent(address);
