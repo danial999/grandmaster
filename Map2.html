@@ -115,7 +115,7 @@ if(IntYear>1950)
             Longitude= results[0].geometry.location.lng();
             // console.log("Longitude"+Longitude+"\n");
              locations.push([address,Latitude,Longitude]);
-             console.log("locations found"+ locations[0][0]);
+             
             //second part 
             if(i==0){
                 map = new google.maps.Map(document.getElementById('map'), {
@@ -127,12 +127,12 @@ if(IntYear>1950)
             }  
             
                 marker = new google.maps.Marker({
-               position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+               position: new google.maps.LatLng(locations[0][1], locations[0][2]),
                 map: map
                 });
                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
-                infowindow.setContent(locations[i][0]);
+                infowindow.setContent(locations[0][0]);
                 infowindow.open(map, marker);
                 }
                 })(marker, i));
