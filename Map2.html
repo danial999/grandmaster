@@ -31,10 +31,9 @@
       <script type="text/javascript">
  var markerCount = 0;
  var map; 
- key=0;
- start_mapping(2000);
-function start_mapping(key2){
-    key=key2;
+ key=2000;
+ start_mapping();
+function start_mapping(){
     jQuery(function($) {
     // Asynchronously Load the map API 
     var script = document.createElement('script');
@@ -46,8 +45,8 @@ function start_mapping(key2){
 }
 
 
-function initialize() {
-
+function initialize(key2) {
+key= key2;
  //Initializes the map… 
  var myLatlng = new google.maps.LatLng(46.855141, -96.8372664);
  var map_canvas = document.getElementById('map_canvas'); 
