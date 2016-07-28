@@ -561,44 +561,7 @@ var canvas = d3.select("#area2")
 
 }
 	
-	function func4()
-{
-var data1 =[30,80];
-	var r= 70;
-	var color = d3.scale.ordinal()
-		.range(["rgb(237, 130, 40)","#4db8ff"]);
 
-	var canvas = d3.select("#area4")
-		.append("svg")
-		.attr("width",150)
-		.attr("height",150);
-
-	var group=canvas.append("g")
-		.attr("transform","translate(75,75)");
-
-	var arc = d3.svg.arc()
-		.innerRadius(40)
-		.outerRadius(r);
-
-	var pie = d3.layout.pie()
-		.value(function(d){return d;});
-
-	var arcs =  group.selectAll(".arc")
-		.data(pie(data1))
-		.enter()
-		.append("g")
-		.attr("class","arc");
-
-	arcs.append("path")
-	.attr("d",arc)
-	.attr("fill", function(d){return color(d.data);});
-
-	arcs.append("text")
-		.attr("transform", function(d){return "translate(" + arc.centroid(d) + ")"})
-		.attr("text-anchor", "middle")
-		.attr("font-size", ".5em")
-		.text(function(d){return d.data;});
-	}
 											
 
 </script>
