@@ -117,37 +117,41 @@ if(IntYear>1950)
     debugger;
     for(i=0; (i<2)&&(i<dataset[iter].location.length);i++){
       
-      if(dataset[iter].location[i])
+      if(dataset[iter].location[i]){
+        console.log("data found")
       address = dataset[iter].location[i];
+      }
+      else{
      address = "Monte Renosa, Corsica, France";
+      }
 
       geocoder.geocode( { 'address': address}, function(results, status) {
          
-          // console.log(status);
+           console.log(status);
           if (status == google.maps.GeocoderStatus.OK) {
             Latitude = results[0].geometry.location.lat();
             // console.log("Latitude"+Latitude+"\n");
             Longitude= results[0].geometry.location.lng();
             // console.log("Longitude"+Longitude+"\n");
-             locations.push([address,Latitude,Longitude]);
+             // locations.push([address,Latitude,Longitude]);
              
             //second part 
-            if(i==3){
+            if(i==0){
                 map = new google.maps.Map(document.getElementById('map_canvas'), {
                 zoom: 12,
-                center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+                center: new google.maps.LatLng(Latitude, Longitude),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
                 });
                 infowindow = new google.maps.InfoWindow();
             }  
             
                 marker = new google.maps.Marker({
-               position: new google.maps.LatLng(locations[0][1], locations[0][2]),
+               position: new google.maps.LatLng(Longitude, Longitude),
                 map: map
           });
                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
-                infowindow.setContent(locations[0][0]);
+                infowindow.setContent(address);
                 infowindow.open(map, marker);
                 }
                 })(marker, i));
