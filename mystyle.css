@@ -1,6 +1,6 @@
 .blue-button {
     background: url(Comverse-ref/source/img/btnArrow.png) right 15px center no-repeat, linear-gradient(to bottom, #2e94c8 , #1188c4);
-    height: 26px;
+    height: 46px;
     width: 100px;
     padding: 10px;
     border: none;
@@ -11,7 +11,8 @@
     margin: 20px 0 20px 0;
 }
 #text1{
-  height: 26px;
+  font-size: 15px;
+  height: 16px;
     width: 140px;
     padding: 10px;
     border: none;
