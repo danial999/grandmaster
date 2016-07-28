@@ -7,9 +7,8 @@
   <title>Google Maps Multiple Markers</title> 
     <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
 
-   <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM">
-    </script>
+   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+
   
     <style>
 
@@ -30,7 +29,13 @@
       <script type="text/javascript">
 
 
-   debugger;
+    jQuery(function($) {
+    // Asynchronously Load the map API 
+    var script = document.createElement('script');
+    // script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM";
+        script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM&callback=initialize";
+    document.body.appendChild(script);
+});
 
 d3.json("data222.json", function (data,error) {
         if(error){
@@ -110,29 +115,25 @@ if(IntYear>1950)
              locations.push([address,Latitude,Longitude]);
             //second part 
             if(i==0){
-          map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: new google.maps.LatLng(locations[0][1], locations[0][2]),
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-           infowindow = new google.maps.InfoWindow();
-      }  
-       
+                map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+                infowindow = new google.maps.InfoWindow();
+            }  
+                console.log(locations[i][1]+ locations[i][2]);
+                marker = new google.maps.Marker({
+               position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
+                });
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                infowindow.setContent(locations[i][0]);
+                infowindow.open(map, marker);
+                }
+                })(marker, i));
 
-
-           console.log(locations[i][1]+ locations[i][2]);
-           marker = new google.maps.Marker({
-           position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-           map: map
-           });
-            google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-           }
-           })(marker, i));
-
-            
             }
             else {
                console.log("Error = "+status);

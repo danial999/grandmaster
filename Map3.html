@@ -115,28 +115,25 @@ if(IntYear>1950)
       address = dataset[iter].location[i];
      address = "Monte Renosa, Corsica, France";
 
-      geocoder.geocode( { 'address': address}, function(results, status) {
-         
-          console.log(status);
-          if (status == google.maps.GeocoderStatus.OK) {
-            Latitude = results[0].geometry.location.lat();
-            // console.log("Latitude"+Latitude+"\n");
-            Longitude= results[0].geometry.location.lng();
-            // console.log("Longitude"+Longitude+"\n");
-             locations.push([address,Latitude,Longitude]);
-            //second part 
-            if(i==0){
-          map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: new google.maps.LatLng(locations[0][1], locations[0][2]),
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+      geocoder.geocode( {address:address}, function(results, status) 
+        {
+          if (status == google.maps.GeocoderStatus.OK) 
+          {
+            map.setCenter(results[0].geometry.location);//center the map over the result
+            //place a marker at the location
+            var marker = new google.maps.Marker(
+            {
+                map: map,
+                position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+         }
         });
-           infowindow = new google.maps.InfoWindow();
-      }    
+     
+     
+     }    
   });//Here the d3 json read file ends 
-    console.log(locations);
-
-    //End part itegrated  
 
     // Multiple Markers
     var markers = [
