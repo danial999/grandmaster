@@ -92,7 +92,7 @@ if(IntYear>1950)
 
 
     key=key2;
-    var iter = end -key;
+    iter = end -key;
     geocoder = new google.maps.Geocoder();
     var address = null;
     var i=0;
