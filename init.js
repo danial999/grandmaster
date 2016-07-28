@@ -1,5 +1,9 @@
 
 
+  
+  <script src="jquery-3.1.0.js"></script> 
+  <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/d3.layout.js"></script>
 
 
  var markerCount = 0;
@@ -20,12 +24,15 @@ function start_mapping(){
 }  
 
 function initialize(key2) {
+   debugger;
   if(Init==1){
     Init=0;
   key=2000;
   }
   else{
     key=key2;
+
+
   }
 
  //Initializes the map… 
