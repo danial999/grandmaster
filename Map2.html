@@ -108,14 +108,14 @@ if(IntYear>1950)
 
       geocoder.geocode( { 'address': address}, function(results, status) {
          
-          console.log(status);
+          // console.log(status);
           if (status == google.maps.GeocoderStatus.OK) {
             Latitude = results[0].geometry.location.lat();
             // console.log("Latitude"+Latitude+"\n");
             Longitude= results[0].geometry.location.lng();
             // console.log("Longitude"+Longitude+"\n");
              locations.push([address,Latitude,Longitude]);
-             console.log("locations found"+ locations);
+             console.log("locations found"+ locations[0][0]);
             //second part 
             if(i==0){
                 map = new google.maps.Map(document.getElementById('map'), {
@@ -125,7 +125,7 @@ if(IntYear>1950)
                 });
                 infowindow = new google.maps.InfoWindow();
             }  
-                console.log(locations[i][1]+ locations[i][2]);
+            
                 marker = new google.maps.Marker({
                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                 map: map
