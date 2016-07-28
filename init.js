@@ -32,7 +32,7 @@ function initialize() {
   }
 
  //Initializes the map… 
- var myLatlng = new google.maps.LatLng(46.855141, -96.8372664);
+ var myLatlng = new google.maps.LatLng(40.855141,18.175016);
  var map_canvas = document.getElementById('map_canvas'); 
  var map_options = { center: myLatlng, zoom: 3, mapTypeId: google.maps.MapTypeId.ROADMAP } 
  map = new google.maps.Map(map_canvas, map_options);
