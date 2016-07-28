@@ -21,6 +21,7 @@ function start_mapping(){
 }  
 
 function initialize(key2) {
+  debugger;
   if(Init==1){
     Init=0;
   key=2000;
