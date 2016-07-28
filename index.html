@@ -19,7 +19,7 @@
   
 </head>
 <body>
-	<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 
   
@@ -264,8 +264,8 @@ svg.selectAll("rect")
    .attr("height", function(d) {
     return (yScale(0) - yScale(d.value));
    })
-   .on('mouseover', tip.show)
-  .on('mouseout', tip.hide)
+  //  .on('mouseover', tip.show)
+  // .on('mouseout', tip.hide)
    .on("click", drill)
    // .transition()
    .attr("fill", function(d) {
@@ -435,27 +435,27 @@ d3.select("svg")
     .style("text-anchor", "start");*/
     
 //creat tip
-var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {
+// var tip = d3.tip()
+//   .attr('class', 'd3-tip')
+//   .offset([-10, 0])
+//   .html(function(d) {
    
-    return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
-    +"<br>" +"<strong>Planes Crashed:</strong> <span style='color:red'>" + d.value  + "</span>"
-    +"<br>" + "<strong>Total Aboard:</strong> <span style='color:red'>" + d.aboard  + "</span>"
-     +"<br>" + "<strong>Total Fatalities:</strong> <span style='color:red'>" + d.fatalities  + "</span>";
+//     return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
+//     +"<br>" +"<strong>Planes Crashed:</strong> <span style='color:red'>" + d.value  + "</span>"
+//     +"<br>" + "<strong>Total Aboard:</strong> <span style='color:red'>" + d.aboard  + "</span>"
+//      +"<br>" + "<strong>Total Fatalities:</strong> <span style='color:red'>" + d.fatalities  + "</span>";
 
     
 
-  })
+//   })
 
-d3.select("svg")
-  .append("g")
-   // .attr("class","y axis")
-    //.attr("transform","translate("+margin*1.5+",0)")
-  //.call(y_axis);
+// d3.select("svg")
+//   .append("g")
+//    // .attr("class","y axis")
+//     //.attr("transform","translate("+margin*1.5+",0)")
+//   //.call(y_axis);
 
-  svg.call(tip);
+//   svg.call(tip);
 
  function drill(d, i) {
         console.log(d.value); //data object
@@ -478,8 +478,8 @@ svg.selectAll("rect")
    .attr("height", function(d) {
     return (yScale(0) - yScale(d.value));
    })
-   .on('mouseover', tip.show)
-  .on('mouseout', tip.hide)
+  //  .on('mouseover', tip.show)
+  // .on('mouseout', tip.hide)
    .on("click", drill)
    // .transition()
    .attr("fill", function(d) {
