@@ -166,6 +166,9 @@ if(IntYear>1950)
   }
 
    });//Here the d3 json read file ends 
+    console.log("refresh ")
+    google.maps.event.trigger(map, 'resize');
+
   
 
 }
