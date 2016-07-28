@@ -115,6 +115,7 @@ if(IntYear>1950)
             Longitude= results[0].geometry.location.lng();
             // console.log("Longitude"+Longitude+"\n");
              locations.push([address,Latitude,Longitude]);
+             console.log("locations found"+ locations);
             //second part 
             if(i==0){
                 map = new google.maps.Map(document.getElementById('map'), {
