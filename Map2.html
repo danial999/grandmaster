@@ -48,8 +48,10 @@ function initialize() {
  var map_canvas = document.getElementById('map_canvas'); 
  var map_options = { center: myLatlng, zoom: 5, mapTypeId: google.maps.MapTypeId.ROADMAP } 
  map = new google.maps.Map(map_canvas, map_options);
- } 
+ start_update();
+ }
 
+function start_update(){
 
       d3.json("data222.json", function (data,error) {
         if(error){
