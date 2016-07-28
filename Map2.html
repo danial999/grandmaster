@@ -137,6 +137,7 @@ if(IntYear>1950)
              
             //second part 
             if(i==0){
+                console.log("centerize");
                 map = new google.maps.Map(document.getElementById('map_canvas'), {
                 zoom: 12,
                 center: new google.maps.LatLng(Latitude, Longitude),
@@ -148,7 +149,9 @@ if(IntYear>1950)
                 marker = new google.maps.Marker({
                position: new google.maps.LatLng(Longitude, Longitude),
                 map: map
-          });
+          }); 
+                  console.log("Latitude"+Latitude+"\n");
+                  console.log("Longitude"+Longitude+"\n");
                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
                 infowindow.setContent(address);
@@ -166,7 +169,7 @@ if(IntYear>1950)
   }
 
    });//Here the d3 json read file ends 
-    console.log("refresh ")
+    console.log("refresh ");
     google.maps.event.trigger(map, 'resize');
 
   
