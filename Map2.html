@@ -54,126 +54,7 @@ function initialize() {
     map.setTilt(45);
 
 
-// d3.json("data222.json", function (data,error) {
-//         if(error){
-//           console.log("Error loading data")
-//         }
-    
 
-// var data = data;
-
-      
-
- 
-
-//  //make Key from 1908 to 2009 -- for now it's till 1949
-// var dataset = [];
-// var start = 1950;
-// var end = 2009
-// var len = end-start;
-// for (var i = start; i <= end; i++) {
-//     dataset.push({
-//         key: i,
-//         value:0,
-//         aboard:0,
-//         fatalities:0,
-//         location:[]
-//     });
-// }
-
-// var soso=data.Date.length;
-
-// for (var i = 0; i < data.Date.length; i++) {
- 
-// var year = data.Date[i].substr(data.Date[i].length - 4);
-// var IntYear = parseInt(year);
-// if(IntYear>1950)
-// {
-    
-//     var aboard = data.Aboard[i];
-//     var IntAboard = parseInt(aboard);
-//     var fatalities = data.Fatalities[i];
-//     var IntFatalities = parseInt(fatalities);
-//     dataset[end-IntYear].value +=1;
-//     dataset[end-IntYear].aboard +=IntAboard;
-//     dataset[end-IntYear].fatalities +=IntFatalities;
-//     dataset[end-IntYear].location.push(data.Location[i]);
-// }
-
-// }
-
-
-//     var key=1962;
-//     var iter = end -key;
-//     geocoder = new google.maps.Geocoder();
-//     var address = null;
-//     var i=0;
-//     Latitude=0;
-//     Longitude=0;
-//     var map ;
-//     var infowindow 
-//     var marker;
-//     locations = [];
-//     debugger;
-//     for(i=0; (i<2)&&(i<dataset[iter].location.length);i++){
-      
-//       if(dataset[iter].location[i]){
-//         console.log("data found")
-//       address = dataset[iter].location[i];
-//       }
-//       else{
-//      address = "Monte Renosa, Corsica, France";
-//       }
-
-//       geocoder.geocode( { 'address': address}, function(results, status) {
-         
-//            console.log(status);
-//           if (status == google.maps.GeocoderStatus.OK) {
-//             Latitude = results[0].geometry.location.lat();
-//             // console.log("Latitude"+Latitude+"\n");
-//             Longitude= results[0].geometry.location.lng();
-//             // console.log("Longitude"+Longitude+"\n");
-//              // locations.push([address,Latitude,Longitude]);
-             
-//             //second part 
-//             if(i==0){
-//                 console.log("centerize");
-//                 map = new google.maps.Map(document.getElementById('map_canvas'), {
-//                 zoom: 12,
-//                 center: new google.maps.LatLng(Latitude, Longitude),
-//                 mapTypeId: google.maps.MapTypeId.ROADMAP
-//                 });
-//                 // infowindow = new google.maps.InfoWindow();
-//             }  
-            
-//                 marker = new google.maps.Marker({
-//                position: new google.maps.LatLng(Longitude, Longitude),
-//                 map: map,
-//                 title: address
-//           }); 
-//                   console.log("Latitude"+Latitude+"\n");
-//                   console.log("Longitude"+Longitude+"\n");
-//             // Display multiple markers on a map
-//                infoWindow = new google.maps.InfoWindow(), marker, i;
-//                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
-//                 return function() {
-//                 infowindow.setContent(address);
-//                 infowindow.open(map, marker);
-//                 }
-//                 })(marker, i));
-
-//             }
-//             else {
-//                console.log("Error = "+status);
-//             // alert("Geocode was not successful for the following reason: " + status);
-//           }
-//         });       
-      
-//   }
-
-//    });//Here the d3 json read file ends 
-//     console.log("refresh ");
-//     google.maps.event.trigger(map, 'resize');
 
   
 
@@ -227,6 +108,136 @@ function initialize() {
         this.setZoom(14);
         google.maps.event.removeListener(boundsListener);
     });
+
+
+      // d3.json("data222.json", function (data,error) {
+//         if(error){
+//           console.log("Error loading data")
+//         }
+    
+
+// var data = data;
+
+      
+
+ 
+
+ //make Key from 1908 to 2009 -- for now it's till 1949
+var dataset = [];
+var start = 1950;
+var end = 2009
+var len = end-start;
+for (var i = start; i <= end; i++) {
+    dataset.push({
+        key: i,
+        value:0,
+        aboard:0,
+        fatalities:0,
+        location:[]
+    });
+}
+
+var soso=data.Date.length;
+
+for (var i = 0; i < data.Date.length; i++) {
+ 
+var year = data.Date[i].substr(data.Date[i].length - 4);
+var IntYear = parseInt(year);
+if(IntYear>1950)
+{
+    
+    var aboard = data.Aboard[i];
+    var IntAboard = parseInt(aboard);
+    var fatalities = data.Fatalities[i];
+    var IntFatalities = parseInt(fatalities);
+    dataset[end-IntYear].value +=1;
+    dataset[end-IntYear].aboard +=IntAboard;
+    dataset[end-IntYear].fatalities +=IntFatalities;
+    dataset[end-IntYear].location.push(data.Location[i]);
+}
+
+}
+
+
+    var key=1962;
+    var iter = end -key;
+    geocoder = new google.maps.Geocoder();
+    var address = null;
+    var i=0;
+    Latitude=0;
+    Longitude=0;
+    var map ;
+    var infowindow 
+    var marker;
+    locations = [];
+    debugger;
+    for(i=0; (i<2)&&(i<dataset[iter].location.length);i++){
+      
+      if(dataset[iter].location[i]){
+        console.log("data found")
+      address = dataset[iter].location[i];
+      }
+      else{
+     address = "Monte Renosa, Corsica, France";
+      }
+
+      geocoder.geocode( { 'address': address}, function(results, status) {
+         
+           console.log(status);
+          if (status == google.maps.GeocoderStatus.OK) {
+            Latitude = results[0].geometry.location.lat();
+            // console.log("Latitude"+Latitude+"\n");
+            Longitude= results[0].geometry.location.lng();
+            // console.log("Longitude"+Longitude+"\n");
+             // locations.push([address,Latitude,Longitude]);
+             
+            //second part 
+            if(i==0){
+                console.log("centerize");
+                map = google.maps.Map(document.getElementById('map_canvas'), {
+                zoom: 12,
+                center: new google.maps.LatLng(Latitude, Longitude),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+                // infowindow = new google.maps.InfoWindow();
+            }  
+            
+                marker = new google.maps.Marker({
+               position: new google.maps.LatLng(Longitude, Longitude),
+                map: map,
+                title: address
+          }); 
+                  console.log("Latitude"+Latitude+"\n");
+                  console.log("Longitude"+Longitude+"\n");
+            // Display multiple markers on a map
+               infoWindow = new google.maps.InfoWindow(), marker, i;
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                infowindow.setContent(address);
+                infowindow.open(map, marker);
+                }
+                })(marker, i));
+
+            }
+            else {
+               console.log("Error = "+status);
+            // alert("Geocode was not successful for the following reason: " + status);
+          }
+        });       
+      
+  }
+
+   });//Here the d3 json read file ends 
+    console.log("refresh ");
+    google.maps.event.trigger(map, 'resize');
+
+
+
+
+
+
+
+
 }      
    
 
