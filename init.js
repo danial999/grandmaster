@@ -36,10 +36,10 @@ function initialize() {
  var map_canvas = document.getElementById('map_canvas'); 
  var map_options = { center: myLatlng, zoom: 3, mapTypeId: google.maps.MapTypeId.ROADMAP } 
  map = new google.maps.Map(map_canvas, map_options);
- start_update();
+ start_update(key);
  }
 
-function start_update(){
+function start_update(key2){
 
       d3.json("data111.json", function (data2,error) {
         if(error){
@@ -91,7 +91,7 @@ if(IntYear>1950)
 }
 
 
-    
+    key=key2;
     var iter = end -key;
     geocoder = new google.maps.Geocoder();
     var address = null;
