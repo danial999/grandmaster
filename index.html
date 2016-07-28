@@ -4,7 +4,7 @@
 <head>
 	<title>Airplanes Crashes Statistics</title>
   
-<!--/ <script src="jquery-3.1.0.js"></script>  -->
+  <script src="jquery-3.1.0.js"></script> 
    <script type="text/javascript" src="d3/d3.js"></script>
     <script type="text/javascript" src="d3/d3.layout.js"></script>
   
@@ -81,10 +81,10 @@
 window.onLoad = func();
 function func(){
 	func1();
-	// func2();
-	// //func3()
-	// func3([581,891,2010]);
-	// func4();
+	func2();
+	//func3()
+	func3([581,891,2010]);
+	func4();
 
 }
 function func1()
@@ -103,165 +103,165 @@ var margin = 20;
         }
      
 
-// var data = data;
+var data = data;
 
  
 
-//  //make Key from 1908 to 2009 -- for now it's till 1949
-// var dataset = [];
-// var start = 1950;
-// var end = 2009
-// var len = end-start;
-// for (var i = start; i <= end; i++) {
-//     dataset.push({
-//         key: i,
-//         value:0,
-//         aboard:0,
-//         fatalities:0
-//     });
-// }
+ //make Key from 1908 to 2009 -- for now it's till 1949
+var dataset = [];
+var start = 1950;
+var end = 2009
+var len = end-start;
+for (var i = start; i <= end; i++) {
+    dataset.push({
+        key: i,
+        value:0,
+        aboard:0,
+        fatalities:0
+    });
+}
 
-// var soso=data.Date.length;
+var soso=data.Date.length;
 
-// for (var i = 0; i < data.Date.length; i++) {
+for (var i = 0; i < data.Date.length; i++) {
  
-// var year = data.Date[i].substr(data.Date[i].length - 4);
-// var IntYear = parseInt(year);
-// if(IntYear>1950)
-// {
-// 	var aboard = data.Aboard[i];
-// 	var IntAboard = parseInt(aboard);
-// 	var fatalities = data.Fatalities[i];
-// 	var IntFatalities = parseInt(fatalities);
-// 	dataset[end-IntYear].value +=1;
-// 	dataset[end-IntYear].aboard +=IntAboard;
-// 	dataset[end-IntYear].fatalities +=IntFatalities;
-// }
+var year = data.Date[i].substr(data.Date[i].length - 4);
+var IntYear = parseInt(year);
+if(IntYear>1950)
+{
+	var aboard = data.Aboard[i];
+	var IntAboard = parseInt(aboard);
+	var fatalities = data.Fatalities[i];
+	var IntFatalities = parseInt(fatalities);
+	dataset[end-IntYear].value +=1;
+	dataset[end-IntYear].aboard +=IntAboard;
+	dataset[end-IntYear].fatalities +=IntFatalities;
+}
 
-// }
+}
 
 
-// var key = function(d) {
-//   return d.key;
-// };
+var key = function(d) {
+  return d.key;
+};
 
-// var value = function(d) {
-//   return d.value;
-// };
-// // console.log(dataset);
+var value = function(d) {
+  return d.value;
+};
+// console.log(dataset);
  
-// //Create SVG element
-// var svg = d3.select("#area1")
-//       .append("svg")
-//       .attr("width", w)
-//       .attr("height", h)
-//     .append("g")
-//     .attr("transform", "translate(" + 30 + "," + 0 + ")");
+//Create SVG element
+var svg = d3.select("#area1")
+      .append("svg")
+      .attr("width", w)
+      .attr("height", h)
+    .append("g")
+    .attr("transform", "translate(" + 30 + "," + 0 + ")");
 
-// var max = d3.max(dataset, function(d) { return +d.value;} );
-
-
+var max = d3.max(dataset, function(d) { return +d.value;} );
 
 
-// var xScale = d3.scale.ordinal()
-//         .domain(d3.range(dataset.length+1))
-//         .rangeRoundBands([(w),0], 0.1); 
-// var hScale = d3.scale.ordinal()
-//         .domain(d3.range(end+1,start,-5))
-//         .rangeRoundBands([w,5], 0.1);       
 
 
-// var yScale = d3.scale.linear()
-//                      .domain([0, max+5])
-//                      .range([h-25-margin*0.9, 0]);
+var xScale = d3.scale.ordinal()
+        .domain(d3.range(dataset.length+1))
+        .rangeRoundBands([(w),0], 0.1); 
+var hScale = d3.scale.ordinal()
+        .domain(d3.range(end+1,start,-5))
+        .rangeRoundBands([w,5], 0.1);       
+
+
+var yScale = d3.scale.linear()
+                     .domain([0, max+5])
+                     .range([h-25-margin*0.9, 0]);
        
-// var x_axis = d3.svg.axis().scale(hScale);
+var x_axis = d3.svg.axis().scale(hScale);
 
 
 
        
-// var y_axis = d3.svg.axis().scale(yScale).orient("left");
+var y_axis = d3.svg.axis().scale(yScale).orient("left");
 
 
-// d3.select("#area1").select("svg")
-//   .append("g")
-//    .attr("class","y axis")
-//     .attr("transform","translate("+40+",0)")
-//   .call(y_axis);
-// d3.select("#area1").select("svg")
-//   .append("text")
-//     .attr("y", 5)
-//     .attr("x", -10)
-//     .attr("dy", ".71em")
-//     .style("text-anchor", "end")
-//     .text("Crahses")
+d3.select("#area1").select("svg")
+  .append("g")
+   .attr("class","y axis")
+    .attr("transform","translate("+40+",0)")
+  .call(y_axis);
+d3.select("#area1").select("svg")
+  .append("text")
+    .attr("y", 5)
+    .attr("x", -10)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Crahses")
 
-//     .attr("transform", "rotate(-90)");
+    .attr("transform", "rotate(-90)");
 
-// d3.select("#area1").select("svg")
-//   .append("g")
-//    .attr("class","x axis")
-//     .attr("transform", "translate("+20+"," + (h-30) + ")")
-//   .call(x_axis);
-// d3.select("#area1").select("svg")
-//   .append("text")
-//     .attr("x", w)
-//    .attr("y", (h-10))
-//     .attr("dy", ".71em")
-//     .style("text-anchor", "end")
-//     .text("Year");
-
-
-
-//  function drill(d, i) {
-//         console.log(d.value); //data object
-//         start_mapping();
-//     }
+d3.select("#area1").select("svg")
+  .append("g")
+   .attr("class","x axis")
+    .attr("transform", "translate("+20+"," + (h-30) + ")")
+  .call(x_axis);
+d3.select("#area1").select("svg")
+  .append("text")
+    .attr("x", w)
+   .attr("y", (h-10))
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Year");
 
 
-// //Create bars
-// svg.selectAll("rect")
-//    .data(dataset, key)
-//    .enter()
-//    .append("rect")
-//     .attr("transform","translate("+-25+",0)")
-//    .attr("x", function(d, i) {
-//     return xScale(i);
-//    })
-//    .attr("y", function(d) {
-//     return yScale(d.value);
-//    })
-//    .attr("width", xScale.rangeBand())
-//    .attr("height", function(d) {
-//     return (yScale(0) - yScale(d.value));
-//    })
-//   //  .on('mouseover', tip.show)
-//   // .on('mouseout', tip.hide)
-//    .on("click", drill)
-//    // .transition()
-//    .attr("fill", function(d) {
-//      setTimeout(function(){
-//     }, 1000);
+
+ function drill(d, i) {
+        console.log(d.value); //data object
+        start_mapping();
+    }
+
+
+//Create bars
+svg.selectAll("rect")
+   .data(dataset, key)
+   .enter()
+   .append("rect")
+    .attr("transform","translate("+-25+",0)")
+   .attr("x", function(d, i) {
+    return xScale(i);
+   })
+   .attr("y", function(d) {
+    return yScale(d.value);
+   })
+   .attr("width", xScale.rangeBand())
+   .attr("height", function(d) {
+    return (yScale(0) - yScale(d.value));
+   })
+  //  .on('mouseover', tip.show)
+  // .on('mouseout', tip.hide)
+   .on("click", drill)
+   // .transition()
+   .attr("fill", function(d) {
+     setTimeout(function(){
+    }, 1000);
   
-//      return "rgb("+ (250-(d.value  *2))+", 30, 40)";
-//    })
+     return "rgb("+ (250-(d.value  *2))+", 30, 40)";
+   })
    
 
 
-// //line
-//   svg.selectAll("line")
-//    .data(dataset, key)
-//    .enter()
-//    .append("line")
-//       .attr("x", function(d) {
+//line
+  svg.selectAll("line")
+   .data(dataset, key)
+   .enter()
+   .append("line")
+      .attr("x", function(d) {
             
-//     return xScale(d.key);
-//    })
-//    .attr("y", function(d) {
-//         return yScale(d.fatalities/d.aboard);
-//    })
-//                          .attr("stroke-width", 2)
-//                          .attr("stroke", "white");
+    return xScale(d.key);
+   })
+   .attr("y", function(d) {
+        return yScale(d.fatalities/d.aboard);
+   })
+                         .attr("stroke-width", 2)
+                         .attr("stroke", "white");
   
 
 }) ; 
