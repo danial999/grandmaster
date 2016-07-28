@@ -1,32 +1,32 @@
 
 
+  
+
+
  var markerCount = 0;
  var map; 
  key=2000;
 
  Init =1;
-// function start_mapping(){
+function start_mapping(){
  
-//     jQuery(function($) {
-//     // Asynchronously Load the map API 
-//     var script = document.createElement('script');
-//     // script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM";
-//         script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM&callback=initialize";
-//     document.body.appendChild(script);
-// });
+    jQuery(function($) {
+    // Asynchronously Load the map API 
+    var script = document.createElement('script');
+    // script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM";
+        script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM&callback=initialize";
+    document.body.appendChild(script);
+});
 
-// }  
+}  
 
 function initialize(key2) {
-   debugger;
   if(Init==1){
     Init=0;
   key=2000;
   }
   else{
     key=key2;
-
-
   }
 
  //Initializes the map… 

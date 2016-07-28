@@ -4,13 +4,11 @@
 <head>
 	<title>Airplanes Crashes Statistics</title>
   <script type = "text/javascript" src ="init.js"></script>
-    <script type = "text/javascript" src ="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM"></script>
-
-   
   
 <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
  
-<script src="http://d3js.org/d3.v3.min.js"> </script>
+   <script src="jquery-3.1.0.js"></script> 
+ <script src="http://d3js.org/d3.v3.min.js"> </script>
   
 
   
@@ -79,24 +77,9 @@
           background-color: grey;
       }
       </style>
-
-       <style>
-
-      #map_wrapper {
-          height: 400px;
-          background-color: grey;
-      }
-
-      #map_canvas {
-          width: 100%;
-          height: 100%;
-      }
-    </style>
 		
-		 <div id="map_wrapper">
-        <div id="map_canvas" class="mapping"></div>
-      </div>
-	<!-- <div id="includedContent"></div> -->
+		
+	<div id="includedContent"></div>
 
 
 			
@@ -121,7 +104,7 @@ function func(){
    }, 2000);
 
 setTimeout(function(){
- initialize(2000);
+load_home();
  }, 2000);
 
 }
@@ -253,7 +236,7 @@ d3.select("#area1").select("svg")
 
  function drill(d, i) {
         console.log(d.value); //data object
-       
+        debugger;
         initialize(end-d);
     }
 
@@ -562,13 +545,13 @@ var canvas = d3.select("#area2")
 	.attr("fill", function(d){return color(d.data);});
 
 	arcs.append("text")
-		 .attr("transform", function(d){return "translate(" + arc.centroid(d) + ")"})
+		// .attr("transform", function(d){return "translate(" + arc.centroid(d) + ")"})
 		.attr("text-anchor", "middle")
 		.attr("font-size", ".8em")
 		.text(function(d){return d.data;});
 
  arcs.append("text")
-    // .attr("transform", function(d){return "translate(" + arc.centroid(d+50) + ")"})
+    .attr("transform", function(d){return "translate(" + arc.centroid(d+50) + ")"})
     .attr("text-anchor", "middle")
     .attr("font-size", ".8em")
     .text(function(d){return data2[2];}); 
@@ -589,13 +572,12 @@ var canvas = d3.select("#area2")
     });
     </script--> 
 
-<!--script type="text/javascript">
+<script type="text/javascript">
   function load_home(){
 document.getElementById("includedContent").innerHTML='<object  width="100%" height="400" type="text/html" data="Map2.html" ></object>';
 }
 
-</script-->
-
+</script>
 
 
 </body>
