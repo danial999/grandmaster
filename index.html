@@ -257,8 +257,8 @@ svg.selectAll("rect")
    .attr("height", function(d) {
     return (yScale(0) - yScale(d.value));
    })
-    .on('mouseover', tip.show)
-   .on('mouseout', tip.hide)
+   .on('mouseover', function(d) {  func3([d.fatalities,d.aboard,(end-d.key+start+1)]); })
+   // .on('mouseout', tip.hide)
    .on("click", drill)
    // .transition()
    .attr("fill", function(d) {
@@ -433,7 +433,7 @@ svg.selectAll("rect")
     return (yScale(0) - yScale(d.value));
    })
     .on('mouseover', function(d) {  func3([d.fatalities,d.aboard,(end-d.key+start+1)]); })
-  .on('mouseout', tip.hide)
+  // .on('mouseout', tip.hide)
    .on("click", drill)
    // .transition()
    .attr("fill", function(d) {
