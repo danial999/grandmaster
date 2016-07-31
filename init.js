@@ -7,6 +7,8 @@ var markerCount;
  var map; 
  
 function start_mapping(){
+    debugger;
+  key=document.getElementById("text1").value ;
   markerCount = 0;
     jQuery(function($) {
     // Asynchronously Load the map API 
@@ -19,8 +21,7 @@ function start_mapping(){
 }  
 
 function initialize() {
-  debugger;
-  key=document.getElementById("text1").value ;
+
 
 
 
