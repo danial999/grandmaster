@@ -70,28 +70,27 @@ for (var i = start; i <= end; i++) {
 
 var soso=data2.Date.length;
 
-for (var i = 0; i < data2.Date.length; i++) {
+for (var jj = 0; jj < data2.Date.length; jj++) {
  
-var year = data2.Date[i].substr(data2.Date[i].length - 4);
+var year = data2.Date[jj].substr(data2.Date[jj].length - 4);
 var IntYear = parseInt(year);
 if(IntYear>1950)
 { 
-  debugger;
     
-    var aboard = data2.Aboard[i];
+    var aboard = data2.Aboard[jj];
     var IntAboard = parseInt(aboard);
-    var fatalities = data2.Fatalities[i];
+    var fatalities = data2.Fatalities[jj];
     var IntFatalities = parseInt(fatalities);
     dataset[end-IntYear].value +=1;
     dataset[end-IntYear].aboard +=IntAboard;
     dataset[end-IntYear].fatalities +=IntFatalities;
     dataset[end-IntYear].location.push(data2
-      .Location[i]);
+      .Location[jj]);
 
 }
 
 }
-
+debugger;
 
     key=key2;
     iter = end -key;
