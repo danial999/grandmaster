@@ -5,9 +5,7 @@
 
 var markerCount;
  var map; 
- key=2000;
-
- Init =1;
+ 
 function start_mapping(){
   markerCount = 0;
     jQuery(function($) {
@@ -22,14 +20,10 @@ function start_mapping(){
 
 function initialize() {
   
-  if(Init==1){
-    Init=0;
-  key=2000;
-  }
-  else{
 
-    key=document.getElementById("text1").value ;
-  }
+
+key=document.getElementById("text1").value ;
+
 
  //Initializes the map… 
  var myLatlng = new google.maps.LatLng(40.855141,18.175016);
