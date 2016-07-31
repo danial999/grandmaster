@@ -19,7 +19,8 @@ function start_mapping(){
 }  
 
 function initialize() {
-  
+  key=document.getElementById("text1").value ;
+  localStorage.setItem("Key", key);
 
 
 
@@ -83,7 +84,7 @@ if(IntYear>1950)
 
 }
 debugger;
-  key=document.getElementById("text1").value ;
+  key = localStorage.getItem("Key");
     iter = end -key;
     geocoder = new google.maps.Geocoder();
     var address = null;
