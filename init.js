@@ -28,10 +28,10 @@ function initialize() {
  var map_canvas = document.getElementById('map_canvas'); 
  var map_options = { center: myLatlng, zoom: 3, mapTypeId: google.maps.MapTypeId.ROADMAP } 
  map = new google.maps.Map(map_canvas, map_options);
- start_update(key);
+ start_update();
  }
 
-function start_update(key2){
+function start_update(){
  
       d3.json("data111.json", function (data2,error) {
         if(error){
