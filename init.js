@@ -107,12 +107,12 @@ if(IntYear>1950)
       if(dataset[iter].location[i]){
      
       address = dataset[iter].location[i];
-         console.log("address");
+       
       }
       else{
      address = "Monte Renosa, Corsica, France";
       }
-
+        console.log("address "+i+" " +address);
       geocoder.geocode( { 'address': address}, function(results, status) {
          
            // console.log(status);
@@ -121,8 +121,8 @@ if(IntYear>1950)
             // console.log("Latitude"+Latitude+"\n");
             Longitude= results[0].geometry.location.lng();             
        
-                  // console.log("Latitude"+Latitude+"\n");
-                  // console.log("Longitude"+Longitude+"\n");
+                   console.log("Latitude :"+i+" " +Latitude+"\n");
+                   console.log("Longitude :"+i+ " " +Longitude+"\n");
             addMarkerToMap(Latitude,Longitude,address);
            }
             else {
