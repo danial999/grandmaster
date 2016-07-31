@@ -99,7 +99,7 @@ if(IntYear>1950)
     var infowindow 
     var marker;
         
-    for(i=0; (i<5)&&(i<dataset[iter].location.length);i++){
+    for(i=0; (i<dataset[iter].location.length);i++){
       
       if(dataset[iter].location[i]){
      
