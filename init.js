@@ -40,7 +40,7 @@ function initialize() {
  }
 
 function start_update(key2){
-    debugger;
+ 
       d3.json("data111.json", function (data2,error) {
         if(error){
           console.log("Error loading data")
@@ -75,7 +75,8 @@ for (var i = 0; i < data2.Date.length; i++) {
 var year = data2.Date[i].substr(data2.Date[i].length - 4);
 var IntYear = parseInt(year);
 if(IntYear>1950)
-{
+{ 
+  debugger;
     
     var aboard = data2.Aboard[i];
     var IntAboard = parseInt(aboard);
@@ -86,6 +87,7 @@ if(IntYear>1950)
     dataset[end-IntYear].fatalities +=IntFatalities;
     dataset[end-IntYear].location.push(data2
       .Location[i]);
+
 }
 
 }
