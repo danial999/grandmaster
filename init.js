@@ -21,7 +21,6 @@ function start_mapping(){
 function initialize() {
   debugger;
   key=document.getElementById("text1").value ;
-  localStorage.setItem("Key", key);
 
 
 
