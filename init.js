@@ -16,9 +16,9 @@ function start_mapping(){
     // script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM";
         script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM";
     document.body.appendChild(script);
-    initialize();
+    
 });
-
+    initialize();
 }  
 
 function initialize() {
