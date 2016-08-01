@@ -1,4 +1,4 @@
-
+var dataset = [];
 
 function start_mapping(){
 
@@ -20,7 +20,7 @@ var data2 = data2;
  
 
  //make Key from 1908 to 2009 -- for now it's till 1949
-var dataset = [];
+
 var start = 1950;
 var end = 2009
 var len = end-start;
