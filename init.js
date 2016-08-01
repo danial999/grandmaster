@@ -99,8 +99,10 @@ if(IntYear>1950)
     var infowindow 
     var marker;
         
-    for(i=0; (i<dataset[iter].location.length);i++){
-      
+    for(i=0 ,markerCount=0; (i<dataset[iter].location.length);i++){
+      setTimeout(function() {
+        console.log(i);
+          }, 10);
       if(dataset[iter].location[i]){
      
       address = dataset[iter].location[i];
@@ -118,8 +120,8 @@ if(IntYear>1950)
             // console.log("Latitude"+Latitude+"\n");
             Longitude= results[0].geometry.location.lng();             
        
-                   console.log("Latitude :"+i+" " +Latitude+"\n");
-                   console.log("Longitude :"+i+ " " +Longitude+"\n");
+                   // console.log("Latitude :"+i+" " +Latitude+"\n");
+                   // console.log("Longitude :"+i+ " " +Longitude+"\n");
             addMarkerToMap(Latitude,Longitude,address);
            }
             else {
