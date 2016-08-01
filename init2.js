@@ -75,11 +75,45 @@ var end = 2009;
     iter = end -key;
      // 
     // delay between geocode requests - at the time of writing, 100 miliseconds seems to work well
-initiate();
+    mapgoogle();
 
 }
-function initiate(){
- // ====== Geocoding ======
+
+
+function mapgoogle() {
+  var delay = 100;
+
+
+      // ====== Create map objects ======
+      var infowindow = new google.maps.InfoWindow();
+      var latlng = new google.maps.LatLng(-34.397, 150.644);
+      var mapOptions = {
+        zoom: 8,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var geo = new google.maps.Geocoder(); 
+      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+      var bounds = new google.maps.LatLngBounds();
+
+
+
+
+      // ======= Call that function for the first time =======
+      theNext();
+
+    // This Javascript is based on code provided by the
+    // Community Church Javascript Team
+    // http://www.bisphamchurch.org.uk/   
+    // http://econym.org.uk/gmap/
+
+    //]]>
+}
+
+
+      
+
+    // ====== Geocoding ======
       function getAddress(search, next) {
         geo.geocode({address:search}, function (results,status)
           { 
@@ -146,44 +180,7 @@ function initiate(){
           // We're done. Show map bounds
           map.fitBounds(bounds);
         }
-}
-
-    mapgoogle();
-
-}
-
-
-function mapgoogle() {
-  var delay = 100;
-
-
-      // ====== Create map objects ======
-      var infowindow = new google.maps.InfoWindow();
-      var latlng = new google.maps.LatLng(-34.397, 150.644);
-      var mapOptions = {
-        zoom: 8,
-        center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
       }
-      var geo = new google.maps.Geocoder(); 
-      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-      var bounds = new google.maps.LatLngBounds();
-
-      
-
-   
-
-
-      // ======= Call that function for the first time =======
-      theNext();
-
-    // This Javascript is based on code provided by the
-    // Community Church Javascript Team
-    // http://www.bisphamchurch.org.uk/   
-    // http://econym.org.uk/gmap/
-
-    //]]>
-}
 
 
 
