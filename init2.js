@@ -1,5 +1,38 @@
 var dataset = [];
 
+// ====== Geocoding ======
+      function getAddress(search, next) {
+        geo.geocode({address:search}, function (results,status)
+          { 
+            // If that was successful
+            if (status == google.maps.GeocoderStatus.OK) {
+              // Lets assume that the first marker is the one we want
+              var p = results[0].geometry.location;
+              var lat=p.lat();
+              var lng=p.lng();
+              // Output the data
+                var msg = 'address="' + search + '" lat=' +lat+ ' lng=' +lng+ '(delay='+delay+'ms)<br>';
+                document.getElementById("messages").innerHTML += msg;
+              // Create a marker
+              createMarker(search,lat,lng);
+            }
+            // ====== Decode the error status ======
+            else {
+              // === if we were sending the requests to fast, try this one again and increase the delay
+              if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+                nextAddress--;
+                delay++;
+              } else {
+                var reason="Code "+status;
+                var msg = 'address="' + search + '" error=' +reason+ '(delay='+delay+'ms)<br>';
+                
+              }   
+            }
+            next();
+          }
+        );
+      }
+
 function start_mapping(){
 
 
@@ -93,38 +126,7 @@ function mapgoogle() {
       var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
       var bounds = new google.maps.LatLngBounds();
 
-      // ====== Geocoding ======
-      function getAddress(search, next) {
-        geo.geocode({address:search}, function (results,status)
-          { 
-            // If that was successful
-            if (status == google.maps.GeocoderStatus.OK) {
-              // Lets assume that the first marker is the one we want
-              var p = results[0].geometry.location;
-              var lat=p.lat();
-              var lng=p.lng();
-              // Output the data
-                var msg = 'address="' + search + '" lat=' +lat+ ' lng=' +lng+ '(delay='+delay+'ms)<br>';
-                document.getElementById("messages").innerHTML += msg;
-              // Create a marker
-              createMarker(search,lat,lng);
-            }
-            // ====== Decode the error status ======
-            else {
-              // === if we were sending the requests to fast, try this one again and increase the delay
-              if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
-                nextAddress--;
-                delay++;
-              } else {
-                var reason="Code "+status;
-                var msg = 'address="' + search + '" error=' +reason+ '(delay='+delay+'ms)<br>';
-                
-              }   
-            }
-            next();
-          }
-        );
-      }
+      
 
      // ======= Function to create a marker
      function createMarker(add,lat,lng) {
@@ -145,6 +147,7 @@ function mapgoogle() {
      }
 
       // ======= An array of locations that we want to Geocode ========
+      debugger;
       var addresses = dataset[iter].location;
 
       // ======= Global variable to remind us what to do next
