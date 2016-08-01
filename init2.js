@@ -57,9 +57,13 @@ if(IntYear>1950)
 
 }
 
- 
+ print();
 });//Here the d3 json read file ends 
       debugger;
+function print(){
+  while(dataset.length==0){
+     setTimeout(function() {  }, 1000);
+  }
 var end = 2009;
  key = localStorage.getItem("Key");
     iter = end -key;
@@ -70,6 +74,7 @@ var end = 2009;
         console.log("address "+i+" " +address);
      }
 
+}
 }
 
 
