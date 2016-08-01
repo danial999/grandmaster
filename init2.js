@@ -59,6 +59,7 @@ if(IntYear>1950)
 
  
 });//Here the d3 json read file ends 
+      debugger;
 var end = 2009;
  key = localStorage.getItem("Key");
     iter = end -key;
