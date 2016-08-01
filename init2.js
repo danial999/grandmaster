@@ -75,30 +75,11 @@ var end = 2009;
     iter = end -key;
      // 
     // delay between geocode requests - at the time of writing, 100 miliseconds seems to work well
-    mapgoogle();
+initiate();
 
 }
-
-
-function mapgoogle() {
-  var delay = 100;
-
-
-      // ====== Create map objects ======
-      var infowindow = new google.maps.InfoWindow();
-      var latlng = new google.maps.LatLng(-34.397, 150.644);
-      var mapOptions = {
-        zoom: 8,
-        center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      var geo = new google.maps.Geocoder(); 
-      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-      var bounds = new google.maps.LatLngBounds();
-
-      
-
-    // ====== Geocoding ======
+function initiate(){
+ // ====== Geocoding ======
       function getAddress(search, next) {
         geo.geocode({address:search}, function (results,status)
           { 
@@ -165,8 +146,32 @@ function mapgoogle() {
           // We're done. Show map bounds
           map.fitBounds(bounds);
         }
-      }
+}
 
+    mapgoogle();
+
+}
+
+
+function mapgoogle() {
+  var delay = 100;
+
+
+      // ====== Create map objects ======
+      var infowindow = new google.maps.InfoWindow();
+      var latlng = new google.maps.LatLng(-34.397, 150.644);
+      var mapOptions = {
+        zoom: 8,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var geo = new google.maps.Geocoder(); 
+      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+      var bounds = new google.maps.LatLngBounds();
+
+      
+
+   
 
 
       // ======= Call that function for the first time =======
