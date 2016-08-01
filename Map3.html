@@ -109,8 +109,12 @@ function done(){
       console.log("waiting");
      setTimeout(function(){ console.log(counter); }, 1000);
     }
+    debugger;
     iter = 2010 -key;
-    addresses= dataset[15].location;
+    if(iter>1500){
+      key =0;
+    }
+    addresses= dataset[iter].location;
      theNext();
 }
     var delay = 100;
