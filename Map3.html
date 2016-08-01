@@ -46,8 +46,12 @@
  var dataset = [];  
  var counter=0; 
 var key;
+var end = 2010;
  function init(){
-  key=document.getElementById("text1").value ;
+key=document.getElementById("text1").value ;
+  if(key!=""){
+  localStorage.setItem("Key", key);
+  }
     d3.json("data111.json", function (data2,error) {
         if(error){
           console.log("Error loading data")
@@ -110,7 +114,8 @@ function done(){
      setTimeout(function(){ console.log(counter); }, 1000);
     }
     debugger;
-    iter = 2010 -key;
+   key = localStorage.getItem("Key");
+    iter = end -key;
     if(iter>1500){
       iter =0;
     }
