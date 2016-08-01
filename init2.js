@@ -1,6 +1,11 @@
 var dataset = [];
 
+ // ======= An array of locations that we want to Geocode ========
+     
+      var addresses;
 
+      // ======= Global variable to remind us what to do next
+      var nextAddress = 0;
 
 function start_mapping(){
 
@@ -75,6 +80,8 @@ var end = 2009;
     iter = end -key;
      // 
     // delay between geocode requests - at the time of writing, 100 miliseconds seems to work well
+
+    addresses = dataset[iter].location;
     mapgoogle();
 
 }
@@ -163,12 +170,7 @@ function mapgoogle() {
 
      }
 
-      // ======= An array of locations that we want to Geocode ========
      
-      var addresses = dataset[iter].location;
-
-      // ======= Global variable to remind us what to do next
-      var nextAddress = 0;
 
       // ======= Function to call the next Geocode operation when the reply comes back
 
