@@ -6,7 +6,7 @@
     <script type="text/javascript" src="d3/d3.js"></script>
     <script type="text/javascript" src="d3/d3.layout.js"></script>
   </head>
-  <body>
+  <body onload="init()">
 
     
     <div id="map" style="width:600px;height:400px;"></div>
@@ -15,6 +15,8 @@
     <script type="text/javascript">
     //<![CDATA[
  var dataset = [];   
+
+ function init(){
     d3.json("data111.json", function (data2,error) {
         if(error){
           console.log("Error loading data")
@@ -67,6 +69,8 @@ if(IntYear>1950)
   
   
 });//Here the d3 json read file ends 
+
+}
     // delay between geocode requests - at the time of writing, 100 miliseconds seems to work well
     while(dataset.length==0){
      setTimeout(function(){ console.log("waiting") }, 1000);
