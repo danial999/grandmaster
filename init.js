@@ -100,7 +100,9 @@ if(IntYear>1950)
     var marker;
         
     for(i=0 ,markerCount=0; (i<dataset[iter].location.length);i++){
+      setTimeout(function() {
       
+         
       if(dataset[iter].location[i]){
      
       address = dataset[iter].location[i];
@@ -120,14 +122,15 @@ if(IntYear>1950)
        
                    // console.log("Latitude :"+i+" " +Latitude+"\n");
                    // console.log("Longitude :"+i+ " " +Longitude+"\n");
-          setTimeout(addMarkerToMap(Latitude,Longitude,address), 50);  
+            addMarkerToMap(Latitude,Longitude,address);
            }
             else {
                console.log("Error = "+status);
             // alert("Geocode was not successful for the following reason: " + status);
           }
         });       
-      
+    
+     }, 20);  
   }
 
    });//Here the d3 json read file ends 
