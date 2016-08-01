@@ -62,13 +62,7 @@ if(IntYear>1950)
 });//Here the d3 json read file ends 
       debugger;
 function print(){
-   jQuery(function($) {
-    // Asynchronously Load the map API 
-    var script = document.createElement('script');
-    // script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM";
-        script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyAtmm7R7GbDN_k_nNyQH0LcRcfQ40RFolM";
-    document.body.appendChild(script);
-});
+  
 
   while(dataset.length==0){
      setTimeout(function() {  }, 1000);
