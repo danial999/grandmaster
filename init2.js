@@ -60,6 +60,7 @@ if(IntYear>1950)
 
  print();
 });//Here the d3 json read file ends 
+}
       debugger;
 function print(){
   
@@ -72,7 +73,12 @@ var end = 2009;
     iter = end -key;
      // 
     // delay between geocode requests - at the time of writing, 100 miliseconds seems to work well
-    var delay = 100;
+    mapgoogle();
+
+}
+
+function mapgoogle() {
+  var delay = 100;
 
 
       // ====== Create map objects ======
@@ -165,7 +171,6 @@ var end = 2009;
     // http://econym.org.uk/gmap/
 
     //]]>
-
 }
 
 
@@ -173,7 +178,7 @@ var end = 2009;
 
 
 
-}
+
 
 
    
