@@ -6,6 +6,7 @@ var dataset = [];
 
       // ======= Global variable to remind us what to do next
       var nextAddress = 0;
+       var delay = 100;
 
 function start_mapping(){
 
@@ -88,10 +89,7 @@ var end = 2009;
 
 
 function mapgoogle() {
-  var delay = 100;
-
-
-      // ====== Create map objects ======
+       // ====== Create map objects ======
       var infowindow = new google.maps.InfoWindow();
       var latlng = new google.maps.LatLng(-34.397, 150.644);
       var mapOptions = {
