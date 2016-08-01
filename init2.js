@@ -166,7 +166,7 @@ function mapgoogle() {
          infowindow.open(map,marker);
        });
 
-       bounds.extend(marker.position);
+       // bounds.extend(marker.position);
 
      }
 
