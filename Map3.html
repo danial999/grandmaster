@@ -14,7 +14,8 @@
 
     <script type="text/javascript">
     //<![CDATA[
- var dataset = [];   
+ var dataset = [];  
+ var counter=0; 
 
  function init(){
     d3.json("data111.json", function (data2,error) {
@@ -72,8 +73,10 @@ if(IntYear>1950)
 
 }
     // delay between geocode requests - at the time of writing, 100 miliseconds seems to work well
-    while(dataset.length==0){
-     setTimeout(function(){ console.log("waiting") }, 1000);
+    while((dataset.length==0)&&(counter<20)){
+      counter++;
+      console.log("waiting");
+     setTimeout(function(){ console.log("waiting"); }, 1000);
     }
     var delay = 100;
 
