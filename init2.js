@@ -17,6 +17,7 @@ var dataset = [];
       var geo = new google.maps.Geocoder(); 
       var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
       var bounds = new google.maps.LatLngBounds();
+      var marker
 
 function start_mapping(){
 
@@ -154,7 +155,7 @@ function mapgoogle() {
  // ======= Function to create a marker
      function createMarker(add,lat,lng) {
        var contentString = add;
-       var marker = new google.maps.Marker({
+       marker = new google.maps.Marker({
          position: new google.maps.LatLng(lat,lng),
          map: map,
          zIndex: Math.round(latlng.lat()*-100000)<<5
