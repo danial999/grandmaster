@@ -1,33 +1,19 @@
-var dataset = [];
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Google Maps</title>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+  </head>
+  <body>
 
- // ======= An array of locations that we want to Geocode ========
-     
-      var addresses;
+    
+    <div id="map" style="width:600px;height:400px;"></div>
+    <div id="messages"></div>
 
-      // ======= Global variable to remind us what to do next
-      var nextAddress = 0;
-       var delay = 100;
-      var infowindow = new google.maps.InfoWindow();
-      var latlng = new google.maps.LatLng(-34.397, 150.644);
-      var mapOptions = {
-        zoom: 8,
-        center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      var geo = new google.maps.Geocoder(); 
-      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-      var bounds = new google.maps.LatLngBounds();
-      var marker
-
-function start_mapping(){
-
-
-  key=document.getElementById("text1").value ;
-    if(key!=""){
-    localStorage.setItem("Key", key);
-    }
- 
-      d3.json("data111.json", function (data2,error) {
+    <script type="text/javascript">
+    //<![CDATA[
+    
+    d3.json("data111.json", function (data2,error) {
         if(error){
           console.log("Error loading data")
         }
@@ -40,7 +26,7 @@ var data2 = data2;
  
 
  //make Key from 1908 to 2009 -- for now it's till 1949
-
+var dataset = [];
 var start = 1950;
 var end = 2009
 var len = end-start;
@@ -76,51 +62,31 @@ if(IntYear>1950)
 }
 
 }
-
- print();
-});//Here the d3 json read file ends 
-}
-      debugger;
-function print(){
   
-
-  while(dataset.length==0){
-     setTimeout(function() {  }, 1000);
-  }
-var end = 2009;
- key = localStorage.getItem("Key");
-    iter = end -key;
-     // 
+  
+});//Here the d3 json read file ends 
     // delay between geocode requests - at the time of writing, 100 miliseconds seems to work well
-
-    addresses = dataset[iter].location;
-    mapgoogle();
-
-}
-
-
-function mapgoogle() {
-       // ====== Create map objects ======
-     
+    while(dataset.length==0){
+     setTimeout(function(){ console.log("waiting") }, 1000);
+    }
+    var delay = 100;
 
 
+    var addresses = dataset[15].location;
 
+      // ====== Create map objects ======
+      var infowindow = new google.maps.InfoWindow();
+      var latlng = new google.maps.LatLng(-34.397, 150.644);
+      var mapOptions = {
+        zoom: 8,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var geo = new google.maps.Geocoder(); 
+      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      var bounds = new google.maps.LatLngBounds();
 
-      // ======= Call that function for the first time =======
-      theNext();
-
-    // This Javascript is based on code provided by the
-    // Community Church Javascript Team
-    // http://www.bisphamchurch.org.uk/   
-    // http://econym.org.uk/gmap/
-
-    //]]>
-}
-
-
-      
-
-    // ====== Geocoding ======
+      // ====== Geocoding ======
       function getAddress(search, next) {
         geo.geocode({address:search}, function (results,status)
           { 
@@ -132,7 +98,7 @@ function mapgoogle() {
               var lng=p.lng();
               // Output the data
                 var msg = 'address="' + search + '" lat=' +lat+ ' lng=' +lng+ '(delay='+delay+'ms)<br>';
-                
+                document.getElementById("messages").innerHTML += msg;
               // Create a marker
               createMarker(search,lat,lng);
             }
@@ -145,17 +111,18 @@ function mapgoogle() {
               } else {
                 var reason="Code "+status;
                 var msg = 'address="' + search + '" error=' +reason+ '(delay='+delay+'ms)<br>';
-                
+                document.getElementById("messages").innerHTML += msg;
               }   
             }
             next();
           }
         );
       }
- // ======= Function to create a marker
+
+     // ======= Function to create a marker
      function createMarker(add,lat,lng) {
        var contentString = add;
-       marker = new google.maps.Marker({
+       var marker = new google.maps.Marker({
          position: new google.maps.LatLng(lat,lng),
          map: map,
          zIndex: Math.round(latlng.lat()*-100000)<<5
@@ -166,11 +133,15 @@ function mapgoogle() {
          infowindow.open(map,marker);
        });
 
-       // bounds.extend(marker.position);
+       bounds.extend(marker.position);
 
      }
 
-     
+      // ======= An array of locations that we want to Geocode ========
+      
+
+      // ======= Global variable to remind us what to do next
+      var nextAddress = 0;
 
       // ======= Function to call the next Geocode operation when the reply comes back
 
@@ -184,12 +155,20 @@ function mapgoogle() {
         }
       }
 
+      // ======= Call that function for the first time =======
+      theNext();
+
+    // This Javascript is based on code provided by the
+    // Community Church Javascript Team
+    // http://www.bisphamchurch.org.uk/   
+    // http://econym.org.uk/gmap/
+
+    //]]>
+    </script>
+  </body>
+
+</html>
 
 
 
 
-
-
-
-
-   
