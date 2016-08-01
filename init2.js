@@ -7,7 +7,7 @@ var dataset = [];
       // ======= Global variable to remind us what to do next
       var nextAddress = 0;
        var delay = 100;
- var infowindow = new google.maps.InfoWindow();
+      var infowindow = new google.maps.InfoWindow();
       var latlng = new google.maps.LatLng(-34.397, 150.644);
       var mapOptions = {
         zoom: 8,
@@ -17,7 +17,7 @@ var dataset = [];
       var geo = new google.maps.Geocoder(); 
       var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
       var bounds = new google.maps.LatLngBounds();
-      
+
 function start_mapping(){
 
 
@@ -131,7 +131,7 @@ function mapgoogle() {
               var lng=p.lng();
               // Output the data
                 var msg = 'address="' + search + '" lat=' +lat+ ' lng=' +lng+ '(delay='+delay+'ms)<br>';
-                document.getElementById("messages").innerHTML += msg;
+                
               // Create a marker
               createMarker(search,lat,lng);
             }
