@@ -99,10 +99,8 @@ if(IntYear>1950)
     var infowindow 
     var marker;
         
-    for(i=0 ,markerCount=0; (i<dataset[iter].location.length);i++){
-      setTimeout(function() {
+    for(i=0;(i<5)&& (i<dataset[iter].location.length);i++){
       
-         
       if(dataset[iter].location[i]){
      
       address = dataset[iter].location[i];
@@ -129,8 +127,7 @@ if(IntYear>1950)
             // alert("Geocode was not successful for the following reason: " + status);
           }
         });       
-    
-     }, 20);  
+      
   }
 
    });//Here the d3 json read file ends 
