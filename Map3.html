@@ -25,7 +25,7 @@
   
         <div id="map" class="mapping"></div>
     
-       <div id="messages"></div>
+       <!-- <div id="messages"></div> -->
       <script type="text/javascript">
       document.getElementById("text1")
     .addEventListener("keyup", function(event) {
@@ -118,9 +118,10 @@ function done(){
 
       // ====== Create map objects ======
       var infowindow = new google.maps.InfoWindow();
-      var latlng = new google.maps.LatLng(-34.397, 150.644);
+      var latlng = new google.maps.LatLng(40.855141,18.175016); 
+
       var mapOptions = {
-        zoom: 8,
+        zoom: 3,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
@@ -139,8 +140,8 @@ function done(){
               var lat=p.lat();
               var lng=p.lng();
               // Output the data
-                var msg = 'address="' + search + '" lat=' +lat+ ' lng=' +lng+ '(delay='+delay+'ms)<br>';
-                document.getElementById("messages").innerHTML += msg;
+                // var msg = 'address="' + search + '" lat=' +lat+ ' lng=' +lng+ '(delay='+delay+'ms)<br>';
+                // document.getElementById("messages").innerHTML += msg;
               // Create a marker
               createMarker(search,lat,lng);
             }
@@ -152,8 +153,8 @@ function done(){
                 delay++;
               } else {
                 var reason="Code "+status;
-                var msg = 'address="' + search + '" error=' +reason+ '(delay='+delay+'ms)<br>';
-                document.getElementById("messages").innerHTML += msg;
+                // var msg = 'address="' + search + '" error=' +reason+ '(delay='+delay+'ms)<br>';
+                // document.getElementById("messages").innerHTML += msg;
               }   
             }
             next();
@@ -167,6 +168,7 @@ function done(){
        var marker = new google.maps.Marker({
          position: new google.maps.LatLng(lat,lng),
          map: map,
+         animation: google.maps.Animation.DROP,
          zIndex: Math.round(latlng.lat()*-100000)<<5
        });
 
