@@ -18,7 +18,7 @@
       }
     </style>
 <form action="">
-<input id="text1" type="text"  placeholder="Enter year to see crash locations (Showing 2000)">
+<input id="text1" type="text"  placeholder="Enter year to see crash locations (Showing 2010)">
  <button class="blue-button" onclick="init()">Show me</button>
 </form>
 
@@ -112,7 +112,7 @@ function done(){
     debugger;
     iter = 2010 -key;
     if(iter>1500){
-      key =0;
+      iter =0;
     }
     addresses= dataset[iter].location;
      theNext();
