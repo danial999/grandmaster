@@ -7,7 +7,17 @@ var dataset = [];
       // ======= Global variable to remind us what to do next
       var nextAddress = 0;
        var delay = 100;
-
+ var infowindow = new google.maps.InfoWindow();
+      var latlng = new google.maps.LatLng(-34.397, 150.644);
+      var mapOptions = {
+        zoom: 8,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var geo = new google.maps.Geocoder(); 
+      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+      var bounds = new google.maps.LatLngBounds();
+      
 function start_mapping(){
 
 
@@ -90,16 +100,7 @@ var end = 2009;
 
 function mapgoogle() {
        // ====== Create map objects ======
-      var infowindow = new google.maps.InfoWindow();
-      var latlng = new google.maps.LatLng(-34.397, 150.644);
-      var mapOptions = {
-        zoom: 8,
-        center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      var geo = new google.maps.Geocoder(); 
-      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-      var bounds = new google.maps.LatLngBounds();
+     
 
 
 
