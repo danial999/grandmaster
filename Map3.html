@@ -79,12 +79,13 @@ function done(){
       console.log("waiting");
      setTimeout(function(){ console.log(counter); }, 1000);
     }
+    addresses= dataset[15].location;
      theNext();
 }
     var delay = 100;
 
 
-    var addresses = dataset[15].location;
+    var addresses ;
 
       // ====== Create map objects ======
       var infowindow = new google.maps.InfoWindow();
@@ -158,6 +159,7 @@ function done(){
       // ======= Function to call the next Geocode operation when the reply comes back
 
       function theNext() {
+
         if (nextAddress < addresses.length) {
           setTimeout('getAddress("'+addresses[nextAddress]+'",theNext)', delay);
           nextAddress++;
