@@ -10,10 +10,10 @@
  
    <script src="jquery-3.1.0.js"></script> 
  <script src="http://d3js.org/d3.v3.min.js"> </script>
-  
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="d3tip.js"></script>
 
-  
-  <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   
 	
@@ -51,10 +51,6 @@
 
 <div class="w3-half w3-container">
   <div class="w3-topbar w3-border-amber w3-padding-top">
-    <!-- <div id="area3"> -->
-      <!-- <div id="area4"></div>  -->
-  
-    
     <h2>Fatilites Per Year</h2>
     <p>Stats for fatilites per year (1950-2010) </p>
     <div id="area2">
@@ -65,9 +61,6 @@
       </ul>
 </div>
 </div>
-
-
- 
 
 
 </div>
@@ -97,10 +90,7 @@ function func(){
   setTimeout(function(){
    	func1();
   }, 2000);
- //  setTimeout(function(){
-	// func2();
- //  }, 2000);
-	//func3()
+  	//func3()
    setTimeout(function(){
 	func3([581,891,2010]);
    }, 2000);
@@ -135,7 +125,7 @@ var dataset = [];
 var start = 1950;
 var end = 2009
 var len = end-start;
-for (var i = end; i >= start; i--) {
+for (var i = start; i <= end; i++) {
     dataset.push({
         key: i,
         value:0,
@@ -379,39 +369,7 @@ var x_axis = d3.svg.axis().scale(hScale);
 var y_axis = d3.svg.axis().scale(yScale).orient("left");
 
 d3.select("svg")
- /* .append("g")
-    .attr("class","x axis")
-    .attr("transform","translate(0,"+(h-margin)+")")
-  .call(x_axis)
-  .selectAll("text")
-    .attr("y", 5)
-    .attr("x", 10)
-    .attr("dy", ".5em")
-    .attr("transform", "rotate(90)")
-    .style("text-anchor", "start");*/
-    
-//creat tip
-// var tip = d3.tip()
-//   .attr('class', 'd3-tip')
-//   .offset([-10, 0])
-//   .html(function(d) {
-   
-//     return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
-//     +"<br>" +"<strong>Planes Crashed:</strong> <span style='color:red'>" + d.value  + "</span>"
-//     +"<br>" + "<strong>Total Aboard:</strong> <span style='color:red'>" + d.aboard  + "</span>"
-//      +"<br>" + "<strong>Total Fatalities:</strong> <span style='color:red'>" + d.fatalities  + "</span>";
-
-    
-
-//   })
-
-// d3.select("svg")
-//   .append("g")
-//    // .attr("class","y axis")
-//     //.attr("transform","translate("+margin*1.5+",0)")
-//   //.call(y_axis);
-
-//   svg.call(tip);
+for (var i = end; i >= start; i--) {
 
  function drill(d, i) {
         console.log(d.value); //data object
