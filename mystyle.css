@@ -165,7 +165,7 @@ $animationLength: 1.5s;
 $animationRadius: 12px;
 $dotSize: 8px;
 
-.sampleContainer { margin-top: 250px; }
+.sampleContainer { margin-top: 0px; }
 
 .loader { 
     position: relative; 
