@@ -21,7 +21,7 @@
 <form action="">
 <input id="text1" type="text"  placeholder="Enter year to see crash locations (Showing 2010)">
  <button class="blue-button" onclick="init()">Show me</button>
- <div class="sampleContainer">
+ <div class="sampleContainer" id="loader">
     <div class="loader">
         <span class="dot dot_1"></span>
         <span class="dot dot_2"></span>
@@ -58,6 +58,7 @@
 var key;
 var start = 1950;
  function init(){
+   document.getElementById("loader").style.display = "inline";
 key=document.getElementById("text1").value ;
   if(key!=""){
   localStorage.setItem("Key", key);
@@ -218,6 +219,7 @@ function done(){
           nextAddress++;
         } else {
           // We're done. Show map bounds
+           document.getElementById("loader").style.display = "hidden";
           map.fitBounds(bounds);
         }
       }

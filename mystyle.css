@@ -162,7 +162,8 @@ rect:hover{
 
 
 .sampleContainer {
-  margin-top: 20px;
+   display: none;
+  margin-top: 0px;
 }
 
 .loader {
