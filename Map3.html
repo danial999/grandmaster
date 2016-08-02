@@ -124,7 +124,7 @@ function done(){
       console.log("waiting");
      setTimeout(function(){ console.log(counter); }, 1000);
     }
-    debugger;
+ 
     console.log(dataset);
    key = localStorage.getItem("Key");
     iter = key-start;
@@ -147,7 +147,7 @@ function done(){
         zoom: 3,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        minZoom: 3 
+        minZoom: 2 
       }
       var geo = new google.maps.Geocoder(); 
       var map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -220,7 +220,8 @@ function done(){
           nextAddress++;
         } else {
           // We're done. Show map bounds
-           document.getElementById("loader").style.display = "hidden";
+             debugger;
+           document.getElementById("loader").style.display = "none";
           map.fitBounds(bounds);
         }
       }

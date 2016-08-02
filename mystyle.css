@@ -1,5 +1,5 @@
 .blue-button {
-    background: url(Comverse-ref/source/img/btnArrow.png) right 15px center no-repeat, linear-gradient(to bottom, #2e94c8 , #1188c4);
+    background: right 15px center no-repeat, linear-gradient(to bottom, #2e94c8 , #1188c4);
     height: 26px;
     width: 100px;
     padding: 10px;
@@ -12,7 +12,7 @@
 }
 #text1{
   font-size: 15px;
-  height: 16px;
+  height: 20px;
     width: 220px;
     padding: 10px;
     border: none;
@@ -155,8 +155,8 @@ rect:hover{
 .legend li { float: left; margin-right: 10px; }
 .legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
 /* your colors */
-.legend .blue { background-color:#00ffff ; }
-.legend .red { background-color: red; }
+.legend .blue { background-color:#4DB8FF ; }
+.legend .red { background-color: #E23F3F; }
 
 
 
