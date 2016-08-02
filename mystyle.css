@@ -2,13 +2,13 @@
     background: right 15px center no-repeat, linear-gradient(to bottom, #2e94c8 , #1188c4);
     height: 26px;
     width: 100px;
-    padding: 10px;
+
     border: none;
     text-align: left;
     border-radius: 6px;
     color: white;
     box-shadow: 0 1px 3px 0 grey;
-    margin: 20px 0 20px 0;
+
 }
 #text1{
   font-size: 15px;
