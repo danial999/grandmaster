@@ -110,7 +110,7 @@ if(IntYear>=1950)
     dataset[end-IntYear].value +=1;
     dataset[end-IntYear].aboard +=IntAboard;
     dataset[end-IntYear].fatalities +=IntFatalities;
-    dataset[end-IntYear].location.push(data2
+    dataset[end-IntYear-1].location.push(data2
       .Location[jj]);
 
 }
@@ -123,12 +123,7 @@ if(IntYear>=1950)
 }
     // delay between geocode requests - at the time of writing, 100 miliseconds seems to work well
 function done(){
-    while((dataset.length==0)&&(counter<20)){
-      counter++;
-      console.log("waiting");
-     setTimeout(function(){ console.log(counter); }, 1000);
-    }
-  debugger;
+   
     console.log(dataset);
    key = localStorage.getItem("Key");
     iter = key-start;
