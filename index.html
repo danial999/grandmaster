@@ -178,10 +178,10 @@ var max = d3.max(dataset, function(d) { return +d.value;} );
 
 var xScale = d3.scale.ordinal()
         .domain(d3.range(dataset.length+1))
-        .rangeRoundBands([(w),0], 0.2); 
+        .rangeRoundBands([(w),0], 0.1); 
 var hScale = d3.scale.ordinal()
         .domain(d3.range(end,start,-5))
-        .rangeRoundBands([w,4], 0.2);       
+        .rangeRoundBands([w,4], 0.1);       
 
 
 var yScale = d3.scale.linear()
@@ -204,7 +204,7 @@ d3.select("#area1").select("svg")
 d3.select("#area1").select("svg")
   .append("text")
     .attr("y", 5)
-    .attr("x", 0)
+    .attr("x", -30)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
     .text("Crahses")
