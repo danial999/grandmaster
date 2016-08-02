@@ -169,7 +169,7 @@ var svg = d3.select("#area1")
       .attr("width", w)
       .attr("height", h)
     .append("g")
-    .attr("transform", "translate(" + 30 + "," + 0 + ")");
+    .attr("transform", "translate(" + 30 + "," + 30 + ")");
 
 var max = d3.max(dataset, function(d) { return +d.value;} );
 
@@ -204,7 +204,7 @@ d3.select("#area1").select("svg")
 d3.select("#area1").select("svg")
   .append("text")
     .attr("y", 5)
-    .attr("x", -30)
+    .attr("x", -20)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
     .text("Crahses")
