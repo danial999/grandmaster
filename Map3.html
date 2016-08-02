@@ -146,7 +146,8 @@ function done(){
       var mapOptions = {
         zoom: 3,
         center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        minZoom: 6 
       }
       var geo = new google.maps.Geocoder(); 
       var map = new google.maps.Map(document.getElementById("map"), mapOptions);
