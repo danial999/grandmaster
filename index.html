@@ -92,7 +92,7 @@ function func(){
   }, 2000);
   	//func3()
    setTimeout(function(){
-	func3([581,891,2010]);
+	func3([581,891,2009]);
    }, 2000);
 
 setTimeout(function(){
@@ -140,7 +140,7 @@ for (var i = 0; i < data.Date.length; i++) {
  
 var year = data.Date[i].substr(data.Date[i].length - 4);
 var IntYear = parseInt(year);
-if(IntYear>1950)
+if(IntYear>=1950)
 {
 	var aboard = data.Aboard[i];
 	var IntAboard = parseInt(aboard);
@@ -247,7 +247,7 @@ svg.selectAll("rect")
    .attr("height", function(d) {
     return (yScale(0) - yScale(d.value));
    })
-   .on('mouseover', function(d) {  func3([d.fatalities,d.aboard,(end-d.key+start+1)]); })
+   .on('mouseover', function(d) {  func3([d.fatalities,d.aboard,(end-d.key+start)]); })
    // .on('mouseout', tip.hide)
    .on("click", drill)
    // .transition()
@@ -299,7 +299,7 @@ var data = data;
 
  //make Key from 1908 to 2009 -- for now it's till 1949
 var dataset = [];
-var start = 1991;
+var start = 1950;
 var end = 2009
 var len = end-start;
 for (var i = start; i <= end; i++) {
@@ -317,7 +317,7 @@ for (var i = 0; i < data.Date.length; i++) {
  
 var year = data.Date[i].substr(data.Date[i].length - 4);
 var IntYear = parseInt(year);
-if(IntYear>1991)
+if(IntYear>=1950)
 {
 	var aboard = data.Aboard[i];
 	var IntAboard = parseInt(aboard);
