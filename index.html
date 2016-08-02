@@ -10,10 +10,10 @@
  
    <script src="jquery-3.1.0.js"></script> 
  <script src="http://d3js.org/d3.v3.min.js"> </script>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="d3tip.js"></script>
+  
 
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
+  
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   
 	
@@ -369,11 +369,40 @@ var x_axis = d3.svg.axis().scale(hScale);
 var y_axis = d3.svg.axis().scale(yScale).orient("left");
 
 d3.select("svg")
-for (var i = end; i >= start; i--) {
+ /* .append("g")
+    .attr("class","x axis")
+    .attr("transform","translate(0,"+(h-margin)+")")
+  .call(x_axis)
+  .selectAll("text")
+    .attr("y", 5)
+    .attr("x", 10)
+    .attr("dy", ".5em")
+    .attr("transform", "rotate(90)")
+    .style("text-anchor", "start");*/
+    
+//creat tip
+// var tip = d3.tip()
+//   .attr('class', 'd3-tip')
+//   .offset([-10, 0])
+//   .html(function(d) {
+   
+//     return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
+//     +"<br>" +"<strong>Planes Crashed:</strong> <span style='color:red'>" + d.value  + "</span>"
+//     +"<br>" + "<strong>Total Aboard:</strong> <span style='color:red'>" + d.aboard  + "</span>"
+//      +"<br>" + "<strong>Total Fatalities:</strong> <span style='color:red'>" + d.fatalities  + "</span>";
 
- function drill(d, i) {
-        console.log(d.value); //data object
-    }
+    
+
+//   })
+
+// d3.select("svg")
+//   .append("g")
+//    // .attr("class","y axis")
+//     //.attr("transform","translate("+margin*1.5+",0)")
+//   //.call(y_axis);
+
+//   svg.call(tip);
+
 
 
 //Create bars
