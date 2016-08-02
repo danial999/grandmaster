@@ -46,7 +46,7 @@
  var dataset = [];  
  var counter=0; 
 var key;
-var end = 2011;
+var start = 1950;
  function init(){
 key=document.getElementById("text1").value ;
   if(key!=""){
@@ -116,7 +116,7 @@ function done(){
     debugger;
     console.log(dataset);
    key = localStorage.getItem("Key");
-    iter = end -key;
+    iter = key-start;
     if(iter>1500){
       iter =0;
     }
