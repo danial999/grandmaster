@@ -97,9 +97,9 @@ function func(){
   setTimeout(function(){
    	func1();
   }, 2000);
-  setTimeout(function(){
-	func2();
-  }, 2000);
+ //  setTimeout(function(){
+	// func2();
+ //  }, 2000);
 	//func3()
    setTimeout(function(){
 	func3([581,891,2010]);
@@ -135,7 +135,7 @@ var dataset = [];
 var start = 1950;
 var end = 2009
 var len = end-start;
-for (var i = start; i <= end; i++) {
+for (var i = end; i >= start; i--) {
     dataset.push({
         key: i,
         value:0,
