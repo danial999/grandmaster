@@ -282,217 +282,217 @@ svg.selectAll("rect")
 }
 
 
-// function func2()
-// {
-// var w = 420;
-// var h = 335;
-// var margin = 20;
-//       d3.json("data111.json", function (error,data) {
-//         if(error){
-//           console.log("Error loading data")
-//         }
+function func2()
+{
+var w = 420;
+var h = 335;
+var margin = 20;
+      d3.json("data111.json", function (error,data) {
+        if(error){
+          console.log("Error loading data")
+        }
      
 
-// var data = data;
+var data = data;
 
  
 
-//  //make Key from 1908 to 2009 -- for now it's till 1949
-// var dataset = [];
-// var start = 1991;
-// var end = 2009
-// var len = end-start;
-// for (var i = start; i <= end; i++) {
-//     dataset.push({
-//         key: i,
-//         value:0,
-//         aboard:0,
-//         fatalities:0
-//     });
-// }
+ //make Key from 1908 to 2009 -- for now it's till 1949
+var dataset = [];
+var start = 1991;
+var end = 2009
+var len = end-start;
+for (var i = start; i <= end; i++) {
+    dataset.push({
+        key: i,
+        value:0,
+        aboard:0,
+        fatalities:0
+    });
+}
 
-// var soso=data.Date.length;
+var soso=data.Date.length;
 
-// for (var i = 0; i < data.Date.length; i++) {
+for (var i = 0; i < data.Date.length; i++) {
  
-// var year = data.Date[i].substr(data.Date[i].length - 4);
-// var IntYear = parseInt(year);
-// if(IntYear>1991)
-// {
-// 	var aboard = data.Aboard[i];
-// 	var IntAboard = parseInt(aboard);
-// 	var fatalities = data.Fatalities[i];
-// 	var IntFatalities = parseInt(fatalities);
-// 	dataset[end-IntYear].value +=1;
-// 	dataset[end-IntYear].aboard +=IntAboard;
-// 	dataset[end-IntYear].fatalities +=IntFatalities;
-// }
+var year = data.Date[i].substr(data.Date[i].length - 4);
+var IntYear = parseInt(year);
+if(IntYear>1991)
+{
+	var aboard = data.Aboard[i];
+	var IntAboard = parseInt(aboard);
+	var fatalities = data.Fatalities[i];
+	var IntFatalities = parseInt(fatalities);
+	dataset[end-IntYear].value +=1;
+	dataset[end-IntYear].aboard +=IntAboard;
+	dataset[end-IntYear].fatalities +=IntFatalities;
+}
 
-// }
+}
 
 
-// var key = function(d) {
-//   return d.key;
-// };
+var key = function(d) {
+  return d.key;
+};
 
-// var value = function(d) {
-//   return d.value;
-// };
+var value = function(d) {
+  return d.value;
+};
  
-// //Create SVG element
-// var svg = d3.select("#area3")
-//       .append("svg")
-//       .attr("width", w)
-//       .attr("height", h);
-// var max1 = d3.max(dataset, function(d) { return + d.fatalities;} );
+//Create SVG element
+var svg = d3.select("#area3")
+      .append("svg")
+      .attr("width", w)
+      .attr("height", h);
+var max1 = d3.max(dataset, function(d) { return + d.fatalities;} );
 
 
 
 
-// var xScale = d3.scale.ordinal()
-//         .domain(d3.range(dataset.length+1))
-//         .rangeRoundBands([(w*0.8),0], 0.1); 
-// var hScale = d3.scale.ordinal()
-//         .domain(d3.range(end+1,start,-5))
-//         .rangeRoundBands([w,5], 0.1);       
+var xScale = d3.scale.ordinal()
+        .domain(d3.range(dataset.length+1))
+        .rangeRoundBands([(w*0.8),0], 0.1); 
+var hScale = d3.scale.ordinal()
+        .domain(d3.range(end+1,start,-5))
+        .rangeRoundBands([w,5], 0.1);       
 
 
-// var yScale = d3.scale.linear()
-//                      .domain([0, max1/20])
-//                      .range([h-25-margin*0.9, 0]);
+var yScale = d3.scale.linear()
+                     .domain([0, max1/20])
+                     .range([h-25-margin*0.9, 0]);
        
-// var x_axis = d3.svg.axis().scale(hScale);
+var x_axis = d3.svg.axis().scale(hScale);
 
 
 
        
-// var y_axis = d3.svg.axis().scale(yScale).orient("left");
+var y_axis = d3.svg.axis().scale(yScale).orient("left");
+
+d3.select("svg")
+ /* .append("g")
+    .attr("class","x axis")
+    .attr("transform","translate(0,"+(h-margin)+")")
+  .call(x_axis)
+  .selectAll("text")
+    .attr("y", 5)
+    .attr("x", 10)
+    .attr("dy", ".5em")
+    .attr("transform", "rotate(90)")
+    .style("text-anchor", "start");*/
+    
+//creat tip
+// var tip = d3.tip()
+//   .attr('class', 'd3-tip')
+//   .offset([-10, 0])
+//   .html(function(d) {
+   
+//     return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
+//     +"<br>" +"<strong>Planes Crashed:</strong> <span style='color:red'>" + d.value  + "</span>"
+//     +"<br>" + "<strong>Total Aboard:</strong> <span style='color:red'>" + d.aboard  + "</span>"
+//      +"<br>" + "<strong>Total Fatalities:</strong> <span style='color:red'>" + d.fatalities  + "</span>";
+
+    
+
+//   })
 
 // d3.select("svg")
-//  /* .append("g")
-//     .attr("class","x axis")
-//     .attr("transform","translate(0,"+(h-margin)+")")
-//   .call(x_axis)
-//   .selectAll("text")
-//     .attr("y", 5)
-//     .attr("x", 10)
-//     .attr("dy", ".5em")
-//     .attr("transform", "rotate(90)")
-//     .style("text-anchor", "start");*/
-    
-// //creat tip
-// // var tip = d3.tip()
-// //   .attr('class', 'd3-tip')
-// //   .offset([-10, 0])
-// //   .html(function(d) {
-   
-// //     return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
-// //     +"<br>" +"<strong>Planes Crashed:</strong> <span style='color:red'>" + d.value  + "</span>"
-// //     +"<br>" + "<strong>Total Aboard:</strong> <span style='color:red'>" + d.aboard  + "</span>"
-// //      +"<br>" + "<strong>Total Fatalities:</strong> <span style='color:red'>" + d.fatalities  + "</span>";
+//   .append("g")
+//    // .attr("class","y axis")
+//     //.attr("transform","translate("+margin*1.5+",0)")
+//   //.call(y_axis);
 
-    
-
-// //   })
-
-// // d3.select("svg")
-// //   .append("g")
-// //    // .attr("class","y axis")
-// //     //.attr("transform","translate("+margin*1.5+",0)")
-// //   //.call(y_axis);
-
-// //   svg.call(tip);
+//   svg.call(tip);
 
 
 
-// //Create bars
-// svg.selectAll("rect")
-//    .data(dataset, key)
-//    .enter()
-//    .append("rect")
-//    .attr("transform","translate("+-25+",0)")
-//    .attr("x", function(d, i) {
-//     return xScale(i);
-//    })
-//    .attr("y", function(d) {
-//     return yScale(d.value);
-//    })
-//    .attr("width", xScale.rangeBand())
-//    .attr("height", function(d) {
-//     return (yScale(0) - yScale(d.value));
-//    })
-//     .on('mouseover', function(d) {  func3([d.fatalities,d.aboard,(end-d.key+start+1)]); })
-//   // .on('mouseout', tip.hide)
-//    .on("click", drill)
-//    // .transition()
-//    .attr("fill", function(d) {
-//      setTimeout(function(){
-//     }, 1000);
+//Create bars
+svg.selectAll("rect")
+   .data(dataset, key)
+   .enter()
+   .append("rect")
+   .attr("transform","translate("+-25+",0)")
+   .attr("x", function(d, i) {
+    return xScale(i);
+   })
+   .attr("y", function(d) {
+    return yScale(d.value);
+   })
+   .attr("width", xScale.rangeBand())
+   .attr("height", function(d) {
+    return (yScale(0) - yScale(d.value));
+   })
+    .on('mouseover', function(d) {  func3([d.fatalities,d.aboard,(end-d.key+start+1)]); })
+  // .on('mouseout', tip.hide)
+   .on("click", drill)
+   // .transition()
+   .attr("fill", function(d) {
+     setTimeout(function(){
+    }, 1000);
   
-//      return "rgb(237, 130, 40)"; 
-//    })
-//    // .duration(1000);
+     return "rgb(237, 130, 40)"; 
+   })
+   // .duration(1000);
    
 
 
-// //line
-//   // svg.selectAll("line")
-//   //  .data(dataset, key)
-//   //  .enter()
-//   //  .append("line")
-//   //     .attr("x", function(d) {
-//   //           debugger;
-//   //   return xScale(d.key);
-//   //  })
-//   //  .attr("y", function(d) {
-//   //   debugger;
-//   //   return yScale(d.fatalities/d.aboard);
-//   //  })
-//   //                        .attr("stroke-width", 2)
-//   //                        .attr("stroke", "white");
-//   //Tooltip
-//   // .on("mouseover", function(d) {
-//   //   //Get this bar's x/y values, then augment for the tooltip
-//   //   var xPosition = parseFloat(d3.select(this).attr("x")) + xScale.rangeBand() / 2;
-//   //   var yPosition = parseFloat(d3.select(this).attr("y")) + 14;
+//line
+  // svg.selectAll("line")
+  //  .data(dataset, key)
+  //  .enter()
+  //  .append("line")
+  //     .attr("x", function(d) {
+  //           debugger;
+  //   return xScale(d.key);
+  //  })
+  //  .attr("y", function(d) {
+  //   debugger;
+  //   return yScale(d.fatalities/d.aboard);
+  //  })
+  //                        .attr("stroke-width", 2)
+  //                        .attr("stroke", "white");
+  //Tooltip
+  // .on("mouseover", function(d) {
+  //   //Get this bar's x/y values, then augment for the tooltip
+  //   var xPosition = parseFloat(d3.select(this).attr("x")) + xScale.rangeBand() / 2;
+  //   var yPosition = parseFloat(d3.select(this).attr("y")) + 14;
     
-//   //   //Update Tooltip Position & value
-//   //   d3.select("#tooltip")
-//   //     .style("left", xPosition + "px")
-//   //     .style("top", yPosition + "px")
-//   //     .select("#value")
-//   //     .text(d.value);
-//   //   d3.select("#tooltip").classed("hidden", false)
-//   // })
-//   // .on("mouseout", function() {
-//   //   //Remove the tooltip
-//   //   d3.select("#tooltip").classed("hidden", true);
-//   // })  ;
+  //   //Update Tooltip Position & value
+  //   d3.select("#tooltip")
+  //     .style("left", xPosition + "px")
+  //     .style("top", yPosition + "px")
+  //     .select("#value")
+  //     .text(d.value);
+  //   d3.select("#tooltip").classed("hidden", false)
+  // })
+  // .on("mouseout", function() {
+  //   //Remove the tooltip
+  //   d3.select("#tooltip").classed("hidden", true);
+  // })  ;
 
-// // //Create labels
-// /*svg.selectAll("text")
-//    .data(dataset, key)
-//    .enter()
-//    .append("text")
-//    .text(function(d) {
-//     return d.value;
-//    })
-//    .attr("text-anchor", "middle")
-//    .attr("x", function(d, i) {
-//     return xScale(i) + xScale.rangeBand() / 2;
-//    })
-//    .attr("y", function(d) {
-//     return yScale(d.value) + 4;
-//    })
-//    .attr("font-family", "sans-serif") 
-//    .attr("font-size", "4px")
-//    .attr("fill", "white");*/
-
-
+// //Create labels
+/*svg.selectAll("text")
+   .data(dataset, key)
+   .enter()
+   .append("text")
+   .text(function(d) {
+    return d.value;
+   })
+   .attr("text-anchor", "middle")
+   .attr("x", function(d, i) {
+    return xScale(i) + xScale.rangeBand() / 2;
+   })
+   .attr("y", function(d) {
+    return yScale(d.value) + 4;
+   })
+   .attr("font-family", "sans-serif") 
+   .attr("font-size", "4px")
+   .attr("fill", "white");*/
 
 
-// })  
-// }
+
+
+})  
+}
 
 function func3(data2)
 {
