@@ -19,7 +19,7 @@
       }
     </style>
 <form action="">
-<input id="text1" type="text"  placeholder="Enter year to see crash locations (Showing 2009)">
+<input id="text1" type="text"  placeholder="Enter year to see crash locations (Showing 2010)">
  <button class="blue-button" onclick="init()">Show me</button>
  <div class="sampleContainer" id="loader">
 <div class="cssload-container">
@@ -82,7 +82,7 @@ var data2 = data2;
  //make Key from 1908 to 2009 -- for now it's till 1949
 
 var start = 1950;
-var end = 2009
+var end = 2010
 var len = end-start;
 for (var i = end; i >= start; i--) {
     dataset.push({
@@ -102,7 +102,7 @@ var year = data2.Date[jj].substr(data2.Date[jj].length - 4);
 var IntYear = parseInt(year);
 if(IntYear>=1950)
 { 
-
+    debugger;
     var aboard = data2.Aboard[jj];
     var IntAboard = parseInt(aboard);
     var fatalities = data2.Fatalities[jj];
@@ -123,7 +123,7 @@ if(IntYear>=1950)
 }
     // delay between geocode requests - at the time of writing, 100 miliseconds seems to work well
 function done(){
-       debugger;
+   
     console.log(dataset);
    key = localStorage.getItem("Key");
     iter = key-start;
