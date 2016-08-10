@@ -19,7 +19,7 @@
       }
     </style>
 <form action="">
-<input id="text1" type="text"  placeholder="Enter year to see crash locations (Showing 2010)">
+<input id="text1" type="text"  placeholder="Enter year to see crash locations (Showing 2009)">
  <button class="blue-button" onclick="init()">Show me</button>
  <div class="sampleContainer" id="loader">
 <div class="cssload-container">
@@ -66,6 +66,9 @@ var start = 1950;
 key=document.getElementById("text1").value ;
   if(key!=""){
   localStorage.setItem("Key", key);
+  }
+  else{
+    key=2009
   }
     d3.json("data111.json", function (data2,error) {
         if(error){
