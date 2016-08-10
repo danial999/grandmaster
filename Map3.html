@@ -84,7 +84,7 @@ var data2 = data2;
 var start = 1950;
 var end = 2010
 var len = end-start;
-for (var i = start; i < end; i++) {
+for (var i = end; i >= start; i--) {
     dataset.push({
         key: i,
         value:0,
@@ -110,7 +110,7 @@ if(IntYear>=1950)
     dataset[end-IntYear].value +=1;
     dataset[end-IntYear].aboard +=IntAboard;
     dataset[end-IntYear].fatalities +=IntFatalities;
-    dataset[end-IntYear-1].location.push(data2
+    dataset[end-IntYear].location.push(data2
       .Location[jj]);
 
 }
